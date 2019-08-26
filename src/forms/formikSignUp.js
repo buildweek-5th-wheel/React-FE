@@ -41,6 +41,6 @@ const FormikSignUpForm = withFormik({
       .required("Password is required")
   }),
 
-})(LoginForm);
+})(SignUpForm);
 
 export default FormikSignUpForm;
