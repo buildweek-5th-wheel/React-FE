@@ -2,9 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-//Stretch ideas: add password limits including regex
-
-function LoginForm({ values, errors, touched, isSubmitting }) {
+function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form>
       <div>
@@ -20,7 +18,7 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
   );
 }
 
-const FormikLoginForm = withFormik({
+const FormikUserAccountForm = withFormik({
   mapPropsToValues({ username, password }) {
     return {
       username: username || "",
@@ -36,25 +34,24 @@ const FormikLoginForm = withFormik({
       .required("Password is required")
   }),
 
-  //I don't believe we need this section since backend handles 
- 
-//   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-//     if (values.email === "alreadytaken@atb.dev") {
-//       setErrors({ email: "That email is already taken" });
-//     } else {
-//       axios
-//         .post("https://yourdatabaseurlgoeshere.com", values)
-//         .then(res => {
-//           console.log(res); // Data was created successfully and logs to console
-//           resetForm();
-//           setSubmitting(false);
-//         })
-//         .catch(err => {
-//           console.log(err); // There was an error creating the data and logs to console
-//           setSubmitting(false);
-//         });
-//     }
-//   }
-})(LoginForm);
+  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+      console.log("User account form saved changes");
+    // if (values.email === "alreadytaken@atb.dev") {
+    //   setErrors({ email: "That email is already taken" });
+    // } else {
+    //   axios
+    //     .post("https://yourdatabaseurlgoeshere.com", values)
+    //     .then(res => {
+    //       console.log(res); // Data was created successfully and logs to console
+    //       resetForm();
+    //       setSubmitting(false);
+    //     })
+    //     .catch(err => {
+    //       console.log(err); // There was an error creating the data and logs to console
+    //       setSubmitting(false);
+    //     });
+    // }
+  }
+})(UserAccountForm);
 
-export default FormikLoginForm;
+export default FormikUserAccountForm;

@@ -1,9 +1,10 @@
 import React from "react";
+import UserAccountComponent from "./components/userAccountComponent";
 
 import "./scss/App.scss";
 
 const App = () => {
-  return <div>Welcome to 5th Wheel Build Week App</div>;
+  return <UserAccountComponent />
 };
 
 export default App;
