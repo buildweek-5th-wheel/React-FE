@@ -9,9 +9,15 @@ const UserAccountComponent = (props) => {
 
     return(
         <div>
+            <h1>User Profile</h1>
+            <img alt="User Profile Picture" src={props["image_url"]}/>
             <UserAccountForm username={props.username} password={props.password} bio={props.bio}/>
         </div>
     )
 }
 
 export default UserAccountComponent;
+
+//make a textarea or input field light grey background when not focused, white when focused.
+
+//save changes/update profile button
