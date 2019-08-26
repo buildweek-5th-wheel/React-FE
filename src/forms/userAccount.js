@@ -2,9 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-//Stretch ideas: add password limits including regex
-
-function LoginForm({ values, errors, touched, isSubmitting }) {
+function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form>
       <div>
@@ -15,16 +13,20 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>
-      <button disabled={isSubmitting}>Submit</button>
+      <div>
+        <Field component="textarea" name="bio" placeholder="bio" />
+      </div>
+      <button disabled={isSubmitting}>Save Changes</button>
     </Form>
   );
 }
 
-const FormikLoginForm = withFormik({
-  mapPropsToValues({ username, password }) {
+const FormikUserAccountForm = withFormik({
+  mapPropsToValues({ username, password, bio }) {
     return {
       username: username || "",
-      password: password || ""
+      password: password || "",
+      bio: bio || ""
     };
   },
   validationSchema: Yup.object().shape({
@@ -37,7 +39,8 @@ const FormikLoginForm = withFormik({
   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    console.log("Login form submission with values", values);
+      console.log("User account form saved changes");
+      console.log(values);
     // if (values.email === "alreadytaken@atb.dev") {
     //   setErrors({ email: "That email is already taken" });
     // } else {
@@ -54,6 +57,6 @@ const FormikLoginForm = withFormik({
     //     });
     // }
   }
-})(LoginForm);
+})(UserAccountForm);
 
-export default FormikLoginForm;
+export default FormikUserAccountForm;
