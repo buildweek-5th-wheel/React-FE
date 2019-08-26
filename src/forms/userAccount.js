@@ -13,16 +13,20 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>
+      <div>
+        <Field component="textarea" name="bio" placeholder="bio" />
+      </div>
       <button disabled={isSubmitting}>Submit</button>
     </Form>
   );
 }
 
 const FormikUserAccountForm = withFormik({
-  mapPropsToValues({ username, password }) {
+  mapPropsToValues({ username, password, bio }) {
     return {
       username: username || "",
-      password: password || ""
+      password: password || "",
+      bio: bio || ""
     };
   },
   validationSchema: Yup.object().shape({
@@ -36,6 +40,7 @@ const FormikUserAccountForm = withFormik({
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
       console.log("User account form saved changes");
+      console.log(values);
     // if (values.email === "alreadytaken@atb.dev") {
     //   setErrors({ email: "That email is already taken" });
     // } else {

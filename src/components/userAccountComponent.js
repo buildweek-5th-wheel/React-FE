@@ -8,17 +8,6 @@ const UserAccountComponent = (props) => {
     console.log(props);
     return(
         <div>
-            <img src={fakeData["image_url"]}/>
-
-            <div className="loginInfo">
-                {fakeData.username}
-                {fakeData.password}
-            </div>
-
-            <div className="bio">
-                <p>{fakeData.bio}</p>
-            </div>
-
             <UserAccountForm username={"Devin"} password={"apwoeifjapoweifjpaoweifj"}/>
         </div>
     )

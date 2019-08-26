@@ -1,10 +1,11 @@
 import React from "react";
-import UserAccountComponent from "./components/userAccountComponent";
 
 import "./scss/App.scss";
 
+import UserAccountComponent from "./components/userAccountComponent";
+
 const App = () => {
-  return <UserAccountComponent />
+  return <UserAccountComponent />;
 };
 
 export default App;
