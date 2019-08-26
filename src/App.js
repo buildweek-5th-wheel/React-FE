@@ -1,9 +1,9 @@
 import React from "react";
-
+import FormikLoginForm from "./forms/formikLogin";
 import "./scss/App.scss";
 
 const App = () => {
-  return <div>Welcome to 5th Wheel Build Week App</div>;
+  return <FormikLoginForm />;
 };
 
 export default App;

@@ -1,0 +1,17 @@
+form {
+    .field{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        width: 25%;
+        margin: 0 auto;
+
+        label{
+            padding: 5px;
+        }
+    }
+    input{
+        border-radius: 3px;
+        padding: 5px;
+    }
+}
