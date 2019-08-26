@@ -24,10 +24,7 @@ export default function LandListings() {
 
                 <LandCard
                     key={land.listing_id}
-                    listing_name={land.listing_name}
-                    user_id={land.user_id}
-                    description={land.description}
-                    img_url={land.img_url}
+                   land={land}
                 />
 
 

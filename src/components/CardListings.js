@@ -10,10 +10,10 @@ const LandCard = (props) => {
         <div className="land-card " key={props.lisiting_id}>
 
 
-            <img src={props.img_url} />
-            <h1>Name:{props.listing_name}</h1>
-            <h3>User:{props.user_id}</h3>
-            <h3>Description:{props.description}</h3>
+            <img src={props.land.img_url} />
+            <h1>Name:{props.land.listing_name}</h1>
+            <h3>User:{props.land.user_id}</h3>
+            <h3>Description:{props.land.description}</h3>
         </div>
     );
 }
