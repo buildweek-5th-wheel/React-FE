@@ -1,7 +1,8 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+
+//Stretch ideas: add password limits including regex
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (

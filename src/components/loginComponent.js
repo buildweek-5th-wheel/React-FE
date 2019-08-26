@@ -1,4 +1,10 @@
 import React from "react";
 import FormikLoginForm from "../forms/formikLogin";
 
-const 
+const LoginComponent = () => {
+    return (
+        <FormikLoginForm />
+    )
+}
+
+export default LoginComponent;
