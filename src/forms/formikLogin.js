@@ -10,12 +10,12 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
     <Form>
       <div className="username field">
         <label>Username</label>
-        {touched.username && errors.username && <p>{errors.username}</p>}
+        {touched.username && errors.username && <p className="error">{errors.username}</p>}
         <Field type="username" name="username" placeholder="Username" />
       </div>
       <div className="password field">
         <label>Password</label>
-        {touched.password && errors.password && <p>{errors.password}</p>}
+        {touched.password && errors.password && <p className="error">{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>
       <button disabled={isSubmitting}>Submit</button>
