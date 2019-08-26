@@ -6,6 +6,8 @@ import Login from "./components/login";
 import Register from "./components/register";
 import Homepage from "./pages/homepage";
 import Navbar from "./components/navbar";
+import data from "./components/DummyData.js";
+import LandCard from "./components/CardListings.js";
 import PrivateRoute from "./redux/util/PrivateRoute";
 
 const App = () => {
