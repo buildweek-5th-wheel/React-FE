@@ -36,25 +36,24 @@ const FormikLoginForm = withFormik({
       .required("Password is required")
   }),
 
-  //I don't believe we need this section since backend handles 
- 
-//   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-//     if (values.email === "alreadytaken@atb.dev") {
-//       setErrors({ email: "That email is already taken" });
-//     } else {
-//       axios
-//         .post("https://yourdatabaseurlgoeshere.com", values)
-//         .then(res => {
-//           console.log(res); // Data was created successfully and logs to console
-//           resetForm();
-//           setSubmitting(false);
-//         })
-//         .catch(err => {
-//           console.log(err); // There was an error creating the data and logs to console
-//           setSubmitting(false);
-//         });
-//     }
-//   }
+  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+    console.log("Login form submission with values", values);
+    // if (values.email === "alreadytaken@atb.dev") {
+    //   setErrors({ email: "That email is already taken" });
+    // } else {
+    //   axios
+    //     .post("https://yourdatabaseurlgoeshere.com", values)
+    //     .then(res => {
+    //       console.log(res); // Data was created successfully and logs to console
+    //       resetForm();
+    //       setSubmitting(false);
+    //     })
+    //     .catch(err => {
+    //       console.log(err); // There was an error creating the data and logs to console
+    //       setSubmitting(false);
+    //     });
+    // }
+  }
 })(LoginForm);
 
 export default FormikLoginForm;
