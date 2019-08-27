@@ -18,6 +18,7 @@ export default (state = initialState, action) => {
         errors: null
       };
     case types.GET_LISTING_SUCCESS:
+      console.log("payload in get", action.payload);
       return {
         ...state,
         isLoading: false,
@@ -37,12 +38,10 @@ export default (state = initialState, action) => {
         errors: null
       };
     case types.POST_LIST_SUCCESS:
-      const updatedList = [...state.listingItems, payload];
       return {
         ...state,
         errors: null,
-        listingItems: updatedList,
-        isSuccess: false
+        isSuccess: true
       };
     case types.POST_LIST_FAILURE:
       return {
@@ -75,6 +74,30 @@ export default (state = initialState, action) => {
         isSuccess: false
       };
 
+    case types.DELETE_LISTING_START:
+      return {
+        ...state,
+        isLoading: true,
+        errors: null
+      };
+
+    case types.DELETE_LISTING_SUCCESS:
+      const updatedListing = state.listingItems.filter(
+        item => item.listing_id !== payload
+      );
+      return {
+        ...state,
+        isLoading: false,
+        errors: null,
+        listingItems: updatedListing
+      };
+
+    case types.DELETE_LISTING_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: payload
+      };
     default:
       return state;
   }
