@@ -1,5 +1,5 @@
 import React from "react";
-import UserAccountForm from "../forms/userAccount";
+import UserAccountForm from "../forms/profileForm";
 import "../../src/scss/userAccount.scss";
 
 const UserAccountComponent = (props) => {
@@ -15,7 +15,3 @@ const UserAccountComponent = (props) => {
 }
 
 export default UserAccountComponent;
-
-//make a textarea or input field light grey background when not focused, white when focused.
-
-//save changes/update profile button

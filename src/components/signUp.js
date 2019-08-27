@@ -25,7 +25,7 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
   );
 }
 
-const FormikSignUpComponent = withFormik({
+const SignUpComponent = withFormik({
   mapPropsToValues({ username, password, landowner }) {
     return {
       username: username || "",
@@ -49,4 +49,4 @@ const FormikSignUpComponent = withFormik({
 
 })(SignUpForm);
 
-export default FormikSignUpComponent;
+export default SignUpComponent;
