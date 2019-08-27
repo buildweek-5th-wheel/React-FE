@@ -5,17 +5,18 @@ import "../../src/scss/formStyles.scss";
 
 function AddListingForm({ values, errors, touched, isSubmitting }) {
   return (
-      <h1>Add a Listing</h1>
     <Form>
+      <h1>Add a Listing</h1>
+
       <div>
         <p>Listing Name</p>
         {touched.username && errors.username && <p>{errors.username}</p>}
         <Field type="username" name="username" placeholder="username" />
       </div>
+
       <div>
         <p>Description</p>
-        {touched.password && errors.password && <p>{errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
+        <Field component="textarea" name="description" placeholder="Description" />
       </div>
     
       <button type="submit" disabled={isSubmitting}>Submit</button>
