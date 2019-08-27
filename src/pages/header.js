@@ -1,10 +1,20 @@
 import React from "react";
-import Logout from "../components/logout";
+import LogoutHeader from "../components/logoutHeader";
+import LoginHeader from "../components/loginHeader";
+
+const signOut = e => {
+  localStorage.removeItem("token");
+};
 
 const Header = props => {
   return (
     <div>
-      <Logout {...props} />
+      {// check if user is logged in
+      !localStorage.getItem("token") ? (
+        <LogoutHeader signOut={signOut} />
+      ) : (
+        <LoginHeader />
+      )}
     </div>
   );
 };
