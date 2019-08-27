@@ -2,10 +2,11 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "../../src/scss/formStyles.scss";
+import "../../src/scss/signUp.scss";
 
 function SignUpForm({ values, errors, touched, isSubmitting }) {
   return (
-    <Form>
+    <Form className="signUp">
       <div>
         <p>User Name</p>
         {touched.username && errors.username && <p>{errors.username}</p>}
