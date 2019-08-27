@@ -1,6 +1,8 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { connect } from "react-redux";
+import { doSignIn } from "../util/actions/authActions";
 import "../../src/scss/formStyles.scss";
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
@@ -37,16 +39,21 @@ const LoginComponent = withFormik({
   },
   validationSchema: Yup.object().shape({
     username: Yup.string()
-      .min(6, "Username must be 6 characters or longer")
+      .min(2, "Username must be 2 characters or longer")
       .required("Username is required"),
     password: Yup.string()
-      .min(16, "Password must be 16 characters or longer")
+      .min(5, "Password must be 5 characters or longer")
       .required("Password is required")
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+  handleSubmit(values, formikBag) {
     console.log("Login form submission with values", values);
+    formikBag.props.doSignIn(values);
+    formikBag.props.history.push("/");
   }
 })(LoginForm);
 
-export default LoginComponent;
+export default connect(
+  null,
+  { doSignIn }
+)(LoginComponent);

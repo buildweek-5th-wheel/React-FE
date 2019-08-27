@@ -21,6 +21,7 @@ export default (state = initialState, action) => {
         isAuth: false
       };
     case type.LOGIN_SUCCESS:
+      console.log(payload.user);
       return {
         ...state,
         token: payload.token,
