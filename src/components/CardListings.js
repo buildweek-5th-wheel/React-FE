@@ -10,10 +10,10 @@ const LandCard = (props) => {
 
 
             <img src={props.land.img_url} />
-            <h1>Name:{props.land.listing_name}</h1>
-            <h3>Listing ID:{props.land.listing_id}</h3>
-            <h3>User:{props.land.user_id}</h3>
-            <h3>Description:{props.land.description}</h3>
+            <h1>Name: {props.land.listing_name}</h1>
+            <h3>Listing ID: {props.land.listing_id}</h3>
+            <h3>User: {props.land.user_id}</h3>
+            <h3>Description: {props.land.description}</h3>
         </div>
     );
 }

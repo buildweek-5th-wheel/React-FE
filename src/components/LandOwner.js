@@ -22,11 +22,11 @@ export default function OwnerListings() {
 
 
     return (
-        <div className="land-list-parent">
+        <div className="owner-list-parent">
 
             <h1>Your land listings:</h1>
 
-        <section className="land-list">
+        <section className="land-list-owner">
             {OwnerList.map(owner => (
 
                 <OwnerCard
