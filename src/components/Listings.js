@@ -1,41 +1,29 @@
-import React, { useEffect, useState } from "react";
-import LandCard from "./CardListings.js"
-import data from "./DummyData.js"
+import React, { useEffect } from "react";
 
+import LandCard from "./CardListings.js";
 
-//All Land Listings
-export default function LandListings() {
+import { connect } from "react-redux";
+import { getListing } from "../util/actions/listingActions";
 
-    const [landList, setLandList] = useState(data)
-    console.log(data)
-    //   useEffect(() => {
+function LandListings(props) {
+  useEffect(() => {
+    props.getListing();
+  }, []);
 
-    //     axios
-    //       .get('')
-    //       .then(response => {
-    //         setLandList(response.data.results);
-    //         console.log("r", response)
-    //       })
-
-    //   }, []);
-
-
-    return (
-        <div className= "land-list-parent">
-<h1>Available land</h1>
-        
-        <section className="land-list">
-            {landList.map(land => (
-
-                <LandCard
-                    key={land.listing_id}
-                   land={land}
-                />
-
-
-            ))}
-
-        </section >
-        </div>
-    );
+  return (
+    <section className="land-list">
+      {props.listing.map(land => (
+        <LandCard key={land.listing_id} land={land} />
+      ))}
+      {console.log("Data from server", props.listing)}
+    </section>
+  );
 }
+const mapStateToProps = state => ({
+  listing: state.listingReducer.listingItems
+});
+
+export default connect(
+  mapStateToProps,
+  { getListing }
+)(LandListings);

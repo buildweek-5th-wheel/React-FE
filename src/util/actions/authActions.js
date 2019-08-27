@@ -12,7 +12,7 @@ export const doSignIn = data => dispatch => {
       console.log("checking the data", res.data);
     })
     .catch(err => {
-      dispatch({ type: types.LOGIN_FAIL, payload: err });
+      dispatch({ type: types.LOGIN_FAILURE, payload: err });
       console.log(err.response);
     });
 };
@@ -27,7 +27,7 @@ export const doRegister = data => dispatch => {
       localStorage.setItem("token", res.data.token);
     })
     .catch(err => {
-      dispatch({ type: types.REGISTER_USER_FAIL, payload: err });
+      dispatch({ type: types.REGISTER_USER_FAILURE, payload: err });
       console.log(err.response);
     });
 };

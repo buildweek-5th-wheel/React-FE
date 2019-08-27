@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
     baseURL: "https://bw-5th-wheel.herokuapp.com/",
     headers: {
       "Content-Type": "application/json",
-      Authorization: token
+      token: token
     }
   });
 };
