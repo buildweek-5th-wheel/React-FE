@@ -17,13 +17,6 @@ const Navbar = () => {
     <>
       <Menu>
         <Menu.Item
-          name="Account Settings"
-          active={active.activeItem === "Account Settings"}
-          onClick={handleClick}
-          as={Nav}
-          to={`/account`}
-        />
-        <Menu.Item
           name="listing"
           active={active.activeItem === "listing"}
           onClick={handleClick}
@@ -36,6 +29,13 @@ const Navbar = () => {
           onClick={handleClick}
           as={Nav}
           to={`/`}
+        />
+        <Menu.Item
+          name="Account Settings"
+          active={active.activeItem === "Account Settings"}
+          onClick={handleClick}
+          as={Nav}
+          to={`/account`}
         />
       </Menu>
     </>

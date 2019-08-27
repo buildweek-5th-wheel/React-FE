@@ -6,9 +6,9 @@ const AuthRoute = ({ component: Component, authenticated, ...rest }) => (
     {...rest}
     render={props =>
       localStorage.getItem("token") ? (
-        <Redirect to="/" />
-      ) : (
         <Component {...props} />
+      ) : (
+        <Redirect to="/" />
       )
     }
   />
