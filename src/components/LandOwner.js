@@ -22,6 +22,10 @@ export default function OwnerListings() {
 
 
     return (
+        <div>
+
+            <h1>Your land listings:</h1>
+
         <section className="land-list">
             {OwnerList.map(owner => (
 
@@ -34,5 +38,6 @@ export default function OwnerListings() {
             ))}
 
         </section >
+        </div>
     )
             }

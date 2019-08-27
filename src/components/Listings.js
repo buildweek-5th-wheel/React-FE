@@ -21,6 +21,9 @@ export default function LandListings() {
 
 
     return (
+        <div>
+<h1>Available land</h1>
+        
         <section className="land-list">
             {landList.map(land => (
 
@@ -33,5 +36,6 @@ export default function LandListings() {
             ))}
 
         </section >
+        </div>
     );
 }
