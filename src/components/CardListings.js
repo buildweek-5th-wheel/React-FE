@@ -1,13 +1,12 @@
 import React from "react";
 
-
-
+//All Land Listings
 const LandCard = (props) => {
 
 
     return (
 
-        <div className="land-card " key={props.lisiting_id}>
+        <div className="land-card " key={props.listing_id}>
 
 
             <img src={props.land.img_url} />

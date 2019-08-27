@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
-import LandCard from "./CardListings.js"
+import OwnerCard from "./LandOwnerCard.js"
 import data from "./DummyData.js"
 
 
-//All Land Listings
-export default function LandListings() {
+//Land owner user page
 
-    const [landList, setLandList] = useState(data)
+export default function OwnerListings() {
+
+    const [OwnerList, setOwnerList] = useState(data)
     console.log(data)
     //   useEffect(() => {
 
     //     axios
     //       .get('')
     //       .then(response => {
-    //         setLandList(response.data.results);
+    //         setOwnerList(response.data.results);
     //         console.log("r", response)
     //       })
 
@@ -22,16 +23,16 @@ export default function LandListings() {
 
     return (
         <section className="land-list">
-            {landList.map(land => (
+            {OwnerList.map(owner => (
 
-                <LandCard
-                    key={land.listing_id}
-                   land={land}
+                <OwnerCard
+                    key={owner.listing_id}
+                   owner={owner}
                 />
 
 
             ))}
 
         </section >
-    );
-}
+    )
+            }
