@@ -1,7 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import "../../src/scss/loginForm.scss";
+import "../../src/scss/formStyles.scss";
 
 //Stretch ideas: add password limits including regex
 
