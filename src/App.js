@@ -12,6 +12,7 @@ import PrivateRoute from "./util/PrivateRoute";
 import LoginComponents from "./components/loginComponent";
 import userAccount from "./components/userAccountComponent";
 import myListing from "./components/myListing";
+import LandListings from "./components/Listings";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       {/* NAVBAR */}
       <Header />
       <Navbar />
+      <LandListings />
 
       {/* ROUTES */}
       <Switch>
