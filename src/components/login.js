@@ -4,10 +4,11 @@ import * as Yup from "yup";
 import { connect } from "react-redux";
 import { doSignIn } from "../util/actions/authActions";
 import "../../src/scss/formStyles.scss";
+import "../../src/scss/login.scss";
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
-    <Form>
+    <Form className="login">
       <h3>Welcome to the login page</h3>
       <div className="username field">
         <label>Username</label>
