@@ -3,8 +3,6 @@ import FormikLoginComponent from "./components/loginComponent";
 
 import "./scss/App.scss";
 
-
-
 const App = () => {
   return <FormikLoginComponent/>;
 };
