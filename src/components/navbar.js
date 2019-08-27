@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
-import PrivateRoute from "../redux/util/PrivateRoute";
 
 const Navbar = () => {
   return (

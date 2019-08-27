@@ -1,6 +1,10 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { connect } from "react-redux";
+import { doRegister } from "../util/actions/authActions";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
 //Stretch ideas: add password limits including regex
 
@@ -24,42 +28,33 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
   );
 }
 
-const FormikSignUpForm = withFormik({
-  mapPropsToValues({ username, password, landowner }) {
-    return {
-      username: username || "",
-      password: password || "",
-      landowner: landowner || false
-    };
-  },
-  validationSchema: Yup.object().shape({
-    username: Yup.string()
-      .min(6, "Username must be 6 characters or longer")
-      .required("Username is required"),
-    password: Yup.string()
-      .min(16, "Password must be 16 characters or longer")
-      .required("Password is required")
-  }),
+const FormikSignUpForm = compose(
+  withRouter,
+  withFormik({
+    mapPropsToValues({ username, password, landowner }) {
+      return {
+        username: username || "",
+        password: password || "",
+        landowner: landowner || false
+      };
+    },
+    validationSchema: Yup.object().shape({
+      username: Yup.string()
+        .min(6, "Username must be 6 characters or longer")
+        .required("Username is required"),
+      password: Yup.string()
+        .min(8, "Password must be 8 characters or longer")
+        .required("Password is required")
+    }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    console.log("Sign Up form submission with values", values);
-    // if (values.email === "alreadytaken@atb.dev") {
-    //   setErrors({ email: "That email is already taken" });
-    // } else {
-    //   axios
-    //     .post("https://yourdatabaseurlgoeshere.com", values)
-    //     .then(res => {
-    //       console.log(res); // Data was created successfully and logs to console
-    //       resetForm();
-    //       setSubmitting(false);
-    //     })
-    //     .catch(err => {
-    //       console.log(err); // There was an error creating the data and logs to console
-    //       setSubmitting(false);
-    //     });
-    // }
-  }
+    handleSubmit(values, submitValues) {
+      submitValues.props.doRegister(values);
+      submitValues.props.history.push("/");
+    }
+  })
+)(SignUpForm);
 
-})(SignUpForm);
-
-export default FormikSignUpForm;
+export default connect(
+  null,
+  { doRegister }
+)(FormikSignUpForm);
