@@ -1,14 +1,15 @@
 import React from "react";
 import UserAccountForm from "../forms/userAccount";
-
+import "../../src/scss/userAccount.scss";
 
 const UserAccountComponent = (props) => {
-
+    //rename incase we change props naming
+    const userAccountData = props.userAccountData;
     return(
-        <div>
+        <div className="userAccount">
             <h1>User Profile</h1>
-            <img alt="User Profile" src={props.userAccountData["image_url"]}/>
-            <UserAccountForm username={props.userAccountData.username} password={props.userAccountData.password} bio={props.userAccountData.bio}/>
+            <img className="profilePic" alt="User Profile" src={userAccountData["image_url"]}/>
+            <UserAccountForm username={userAccountData.username} password={userAccountData.password} bio={userAccountData.bio}/>
         </div>
     )
 }

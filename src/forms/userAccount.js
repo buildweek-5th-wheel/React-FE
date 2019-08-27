@@ -1,20 +1,22 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import "../../src/scss/userAccount.scss";
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
-    <Form>
+    <Form className="userAccount">
       <div>
-        {touched.username && errors.username && <p>{errors.username}</p>}
+        <p>User Name</p>
+        {touched.username && errors.username && <p className="error">{errors.username}</p>}
         <Field type="username" name="username" placeholder="username" />
       </div>
       <div>
-        {touched.password && errors.password && <p>{errors.password}</p>}
+        <p>Password</p>
+        {touched.password && errors.password && <p className="error">{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>
       <div>
+        <p>Bio</p>
         <Field component="textarea" name="bio" placeholder="bio" />
       </div>
       <button type="submit" >Save Changes</button>
