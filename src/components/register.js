@@ -23,7 +23,7 @@ const Register = props => {
     axios
       .post("https://bw-5th-wheel.herokuapp.com/auth/register", newUser)
       .then(res => {
-        localStorage.setItem("token", res.data.payload);
+        localStorage.setItem("token", res.data.token);
         props.history.push("/");
       })
       .catch(err => console.log(err.response));
