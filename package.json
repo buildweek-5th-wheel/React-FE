@@ -12,8 +12,14 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.1.1",
     "redux": "^4.0.4",
+<<<<<<< HEAD
     "semantic-ui-react": "^0.88.0",
     "styled-components": "^4.3.2",
+=======
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.0",
+>>>>>>> 7660b97432359c799c09e175d6968f03c2057de3
     "yup": "^0.27.0"
   },
   "scripts": {
