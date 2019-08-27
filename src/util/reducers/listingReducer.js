@@ -18,7 +18,6 @@ export default (state = initialState, action) => {
         errors: null
       };
     case types.GET_LISTING_SUCCESS:
-      console.log("payload in get", action.payload);
       return {
         ...state,
         isLoading: false,
