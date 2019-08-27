@@ -44,8 +44,9 @@ const FormikLoginForm = compose(
     }),
 
     handleSubmit(values, submitValues) {
-      submitValues.props.doSignIn(values);
-      submitValues.props.history.push("/");
+      submitValues.props
+        .doSignIn(values)
+        .then(() => submitValues.props.history.push("/"));
     }
   })
 )(LoginForm);
