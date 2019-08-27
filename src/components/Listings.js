@@ -11,12 +11,16 @@ function LandListings(props) {
   }, []);
 
   return (
+    <div className="Land-List-Parent">
+        <h1>Available Land</h1>
     <section className="land-list">
+      
       {props.listing.map(land => (
         <LandCard key={land.listing_id} land={land} />
       ))}
       {console.log("Data from server", props.listing)}
     </section>
+    </div>
   );
 }
 const mapStateToProps = state => ({

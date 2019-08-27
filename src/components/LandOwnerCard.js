@@ -1,6 +1,6 @@
 import React from "react";
 import {Card} from 'semantic-ui-react'
-
+import "../scss/LandOwner.scss";
 
 
 //Land owner user page
@@ -11,9 +11,9 @@ const OwnerCard = (props) => {
 
     return (
 
-        <div className="owner-card " key={props.listing_id}>
+        
 
-<Card>
+<Card className="owner-card " key={props.listing_id}>
             <img src={props.owner.img_url} />
 
         <h1>Name: {props.owner.listing_name}</h1>
@@ -30,7 +30,7 @@ const OwnerCard = (props) => {
     
    
 
-        </div>
+      
     );
 }
 

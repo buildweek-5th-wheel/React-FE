@@ -5,19 +5,34 @@ div {
 .land-list-parent{
   text-align: center;
   color:black;
+  h1{
+    color:black;
+  }
 }
-.owner-list-parent{
-  background: lightgray;
-}
-img{
-width: 20rem;
-height: 15rem;
-}
+
+
 .land-list{
   
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+ 
+   img{
+    
+width: 20rem;
+  }
+
+  // @media max-width 500px {
+    
+  // }
+
+ h1{
+   color: black;
+ text-align: center;
+align-content: center;  
+
+}  
 }
 .land-list-owner{
   
@@ -25,24 +40,41 @@ height: 15rem;
   display: flex;
 flex-direction: column;
   justify-content: space-between;
+ 
+  img{
+    width:80%;
+    margin-top: 2rem;
+  }
 } 
 
 
 .land-card{
  
   color:black;
+  width: 20rem;
+  
  margin: 3rem;
- background: lightgrey;
+ background: #9497a4;
  border:1px solid black;
+ font-family: Arial, Helvetica, sans-serif;
+font-size: 1rem;
 }
 .owner-card{
-  color:black;
+  color:yellow; 
+font-family: Arial, Helvetica, sans-serif;
   margin: 3rem;  
-  background: lightgrey;
-  
+  background:#9497a4;
+  border:1px solid black;
+  font-size: 20px;
 }
 .footer-container{
   color: black;
   border: 1px solid black;
   text-align: center;
+}
+.Add-Land-Button{
+  width:8rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
 }
