@@ -52,6 +52,29 @@ export default (state = initialState, action) => {
         isSuccess: false
       };
 
+    case types.UPDATE_LISTING_START:
+      return {
+        ...state,
+        isLoading: true,
+        errors: null
+      };
+    case types.UPDATE_LISTING_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        errors: null,
+        listingItems: payload,
+        isSuccess: true
+      };
+
+    case types.UPDATE_LISTING_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: payload,
+        isSuccess: false
+      };
+
     default:
       return state;
   }
