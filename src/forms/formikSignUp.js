@@ -1,6 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import "../../src/scss/formStyles.scss";
 
 //Stretch ideas: add password limits including regex
 
@@ -8,10 +9,12 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form>
       <div>
+        <p>User Name</p>
         {touched.username && errors.username && <p>{errors.username}</p>}
         <Field type="username" name="username" placeholder="username" />
       </div>
       <div>
+        <p>Password</p>
         {touched.password && errors.password && <p>{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>

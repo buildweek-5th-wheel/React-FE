@@ -1,9 +1,10 @@
 import React from "react";
-import FormikLoginForm from "./forms/formikLogin";
+// import FormikLoginForm from "./forms/formikLogin";
+import FormikSignUpForm from "./forms/formikSignUp";
 import "./scss/App.scss";
 
 const App = () => {
-  return <FormikLoginForm />;
+  return <FormikSignUpForm />;
 };
 
 export default App;
