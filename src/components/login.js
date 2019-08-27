@@ -5,19 +5,25 @@ import "../../src/scss/formStyles.scss";
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
-    <h3>Welcome to the login page</h3>
     <Form>
+      <h3>Welcome to the login page</h3>
       <div className="username field">
         <label>Username</label>
-        {touched.username && errors.username && <p className="error">{errors.username}</p>}
+        {touched.username && errors.username && (
+          <p className="error">{errors.username}</p>
+        )}
         <Field type="username" name="username" placeholder="Username" />
       </div>
       <div className="password field">
         <label>Password</label>
-        {touched.password && errors.password && <p className="error">{errors.password}</p>}
+        {touched.password && errors.password && (
+          <p className="error">{errors.password}</p>
+        )}
         <Field type="password" name="password" placeholder="Password" />
       </div>
-      <button type="submit" disabled={isSubmitting}>Submit</button>
+      <button type="submit" disabled={isSubmitting}>
+        Submit
+      </button>
     </Form>
   );
 }

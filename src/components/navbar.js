@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Menu } from "semantic-ui-react";
-import { NavLink, Link } from "react-router-dom";
-import Homepage from "../pages/homepage";
-import LoginComponent from "./loginComponent";
-import SignUpComponent from "./signUpComponent";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [active, setActive] = useState({
