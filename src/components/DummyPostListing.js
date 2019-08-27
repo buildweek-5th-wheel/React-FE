@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import {
   postListing,
   getListing,
-  updateListing
+  updateListing,
+  deleteListing
 } from "../util/actions/listingActions";
-import AuthRoute from "../util/AuthRoute";
 
 const DumbPost = props => {
   const data = {
-    listing_name: "Cool beans",
+    listing_name: "SOME STUFF",
     user_id: 1
   };
   useEffect(() => {
@@ -23,17 +23,26 @@ const DumbPost = props => {
 
   return (
     <div>
-      <button onClick={() => props.postListing(data)}>Press to Post</button>
+      <button
+        onClick={() => {
+          props.postListing(data);
+          props.getListing();
+          props.getListing();
+        }}
+      >
+        Press to Post
+      </button>
       <button
         onClick={() => {
           console.log(props.listing);
         }}
       >
-        Get Some listings
+        Get Some LOCAL STATE listings
       </button>
       <button onClick={() => props.updateListing(editListing)}>
         PUT request to update listing
       </button>
+      <button onClick={() => props.deleteListing(9)}>Delete Listing 1</button>
       Check console for post confirmation
     </div>
   );
@@ -45,5 +54,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { postListing, getListing, updateListing }
+  { postListing, getListing, updateListing, deleteListing }
 )(DumbPost);
