@@ -1,6 +1,10 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { connect } from "react-redux";
+import { doSignIn, setAuthorization } from "../util/actions/authActions";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
 
 //Stretch ideas: add password limits including regex
 
@@ -20,40 +24,33 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
   );
 }
 
-const FormikLoginForm = withFormik({
-  mapPropsToValues({ username, password }) {
-    return {
-      username: username || "",
-      password: password || ""
-    };
-  },
-  validationSchema: Yup.object().shape({
-    username: Yup.string()
-      .min(6, "Username must be 6 characters or longer")
-      .required("Username is required"),
-    password: Yup.string()
-      .min(16, "Password must be 16 characters or longer")
-      .required("Password is required")
-  }),
+const FormikLoginForm = compose(
+  withRouter,
+  withFormik({
+    mapPropsToValues({ username, password }) {
+      return {
+        username: username || "",
+        password: password || ""
+      };
+    },
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    console.log("Login form submission with values", values);
-    // if (values.email === "alreadytaken@atb.dev") {
-    //   setErrors({ email: "That email is already taken" });
-    // } else {
-    //   axios
-    //     .post("https://yourdatabaseurlgoeshere.com", values)
-    //     .then(res => {
-    //       console.log(res); // Data was created successfully and logs to console
-    //       resetForm();
-    //       setSubmitting(false);
-    //     })
-    //     .catch(err => {
-    //       console.log(err); // There was an error creating the data and logs to console
-    //       setSubmitting(false);
-    //     });
-    // }
-  }
-})(LoginForm);
+    validationSchema: Yup.object().shape({
+      username: Yup.string()
+        .min(6, "Username must be 6 characters or longer")
+        .required("Username is required"),
+      password: Yup.string()
+        .min(8, "Password must be 8 characters or longer")
+        .required("Password is required")
+    }),
 
-export default FormikLoginForm;
+    handleSubmit(values, submitValues) {
+      submitValues.props.doSignIn(values);
+      submitValues.props.history.push("/");
+    }
+  })
+)(LoginForm);
+
+export default connect(
+  null,
+  { doSignIn }
+)(FormikLoginForm);
