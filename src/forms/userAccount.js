@@ -4,19 +4,22 @@ import * as Yup from "yup";
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
-    <Form>
+    <Form className="userAccount">
       <div>
-        {touched.username && errors.username && <p>{errors.username}</p>}
+        <p>User Name</p>
+        {touched.username && errors.username && <p className="error">{errors.username}</p>}
         <Field type="username" name="username" placeholder="username" />
       </div>
       <div>
-        {touched.password && errors.password && <p>{errors.password}</p>}
+        <p>Password</p>
+        {touched.password && errors.password && <p className="error">{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>
       <div>
+        <p>Bio</p>
         <Field component="textarea" name="bio" placeholder="bio" />
       </div>
-      <button disabled={isSubmitting}>Save Changes</button>
+      <button type="submit" >Save Changes</button>
     </Form>
   );
 }
@@ -41,21 +44,6 @@ const FormikUserAccountForm = withFormik({
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
       console.log("User account form saved changes");
       console.log(values);
-    // if (values.email === "alreadytaken@atb.dev") {
-    //   setErrors({ email: "That email is already taken" });
-    // } else {
-    //   axios
-    //     .post("https://yourdatabaseurlgoeshere.com", values)
-    //     .then(res => {
-    //       console.log(res); // Data was created successfully and logs to console
-    //       resetForm();
-    //       setSubmitting(false);
-    //     })
-    //     .catch(err => {
-    //       console.log(err); // There was an error creating the data and logs to console
-    //       setSubmitting(false);
-    //     });
-    // }
   }
 })(UserAccountForm);
 

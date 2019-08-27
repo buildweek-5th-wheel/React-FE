@@ -1,4 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
+import FormikLoginComponent from "./components/loginComponent";
+
+=======
+>>>>>>> 7660b97432359c799c09e175d6968f03c2057de3
 import "./scss/App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -13,12 +18,19 @@ import LoginComponents from "./components/loginComponent";
 import userAccount from "./components/userAccountComponent";
 import myListing from "./components/myListing";
 
+
+
 const App = () => {
+<<<<<<< HEAD
+  return <FormikLoginComponent/>;
+};
+=======
   return (
     <Router>
       {/* NAVBAR */}
       <Header />
       <Navbar />
+>>>>>>> 7660b97432359c799c09e175d6968f03c2057de3
 
       {/* ROUTES */}
       <Switch>

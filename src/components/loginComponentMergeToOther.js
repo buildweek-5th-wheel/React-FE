@@ -5,7 +5,6 @@ import "../../src/scss/formStyles.scss";
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
-    <h3>Welcome to the login page</h3>
     <Form>
       <div className="username field">
         <label>Username</label>
@@ -22,7 +21,7 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
   );
 }
 
-const LoginComponent = withFormik({
+const FormikLoginComponent = withFormik({
   mapPropsToValues({ username, password }) {
     return {
       username: username || "",
@@ -58,4 +57,4 @@ const LoginComponent = withFormik({
   }
 })(LoginForm);
 
-export default LoginComponent;
+export default FormikLoginComponent;
