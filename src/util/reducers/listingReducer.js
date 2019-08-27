@@ -30,6 +30,27 @@ export default (state = initialState, action) => {
         isLoading: false,
         errors: payload.err
       };
+    case types.POST_LIST_START:
+      return {
+        ...state,
+        isLoading: true,
+        errors: null
+      };
+    case types.POST_LIST_SUCCESS:
+      const updatedList = [...state.listingItems, payload];
+      return {
+        ...state,
+        errors: null,
+        listingItems: updatedList,
+        isSuccess: false
+      };
+    case types.POST_LIST_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: payload,
+        isSuccess: false
+      };
 
     default:
       return state;

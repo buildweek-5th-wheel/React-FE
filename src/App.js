@@ -6,22 +6,21 @@ import Header from "./pages/header";
 import SignupComponent from "./components/signUpComponent";
 import Homepage from "./pages/homepage";
 import Navbar from "./components/navbar";
-import data from "./components/DummyData.js";
-import LandCard from "./components/CardListings.js";
 import PrivateRoute from "./util/PrivateRoute";
 import LoginComponents from "./components/loginComponent";
 import userAccount from "./components/userAccountComponent";
 import myListing from "./components/myListing";
-import LandListings from "./components/Listings";
 
+//Testing Area for Components
+import DumbPost from "./components/DummyPostListing";
+//Testing Area Components
 const App = () => {
   return (
     <Router>
       {/* NAVBAR */}
       <Header />
       <Navbar />
-      <LandListings />
-
+      <DumbPost />
       {/* ROUTES */}
       <Switch>
         <Route exact path="/" component={Homepage} />

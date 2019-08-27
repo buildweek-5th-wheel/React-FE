@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import LandCard from "./CardListings.js";
-import data from "./DummyData.js";
+
 import { connect } from "react-redux";
 import { getListing } from "../util/actions/listingActions";
 
