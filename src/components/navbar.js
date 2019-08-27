@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Menu } from "semantic-ui-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+import Homepage from "../pages/homepage";
+import LoginComponent from "./loginComponent";
+import SignUpComponent from "./signUpComponent";
 
 const Navbar = () => {
   const [active, setActive] = useState({
@@ -13,31 +16,59 @@ const Navbar = () => {
     setActive({ activeItem: name });
   };
 
+  const token = localStorage.getItem("token");
+
   return (
     <>
-      <Menu>
-        <Menu.Item
-          name="listing"
-          active={active.activeItem === "listing"}
-          onClick={handleClick}
-          as={Nav}
-          to={`/listing`}
-        />
-        <Menu.Item
-          name="RV spots"
-          active={active.activeItem === "RV spots"}
-          onClick={handleClick}
-          as={Nav}
-          to={`/`}
-        />
-        <Menu.Item
-          name="Account Settings"
-          active={active.activeItem === "Account Settings"}
-          onClick={handleClick}
-          as={Nav}
-          to={`/account`}
-        />
-      </Menu>
+      {token ? (
+        <Menu>
+          <Menu.Item
+            name="listing"
+            active={active.activeItem === "listing"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/listing`}
+          />
+          <Menu.Item
+            name="RV spots"
+            active={active.activeItem === "RV spots"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/`}
+          />
+          <Menu.Item
+            name="Account Settings"
+            active={active.activeItem === "Account Settings"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/account`}
+          />
+        </Menu>
+      ) : (
+        <Menu>
+          <Menu.Item
+            name="Home"
+            active={active.activeItem === "home"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/home`}
+          />
+          <Menu.Item
+            name="Login"
+            active={active.activeItem === "login"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/login`}
+          />
+          <Menu.Item
+            name="Register"
+            active={active.activeItem === "register"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/register`}
+          />
+        </Menu>
+      )}
     </>
   );
 };
