@@ -20,12 +20,12 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
         <Field type="checkbox" name="landowner" checked={values.landowner} />
         Landowner
       </label>
-      <button disabled={isSubmitting}>Submit</button>
+      <button type="submit" disabled={isSubmitting}>Submit</button>
     </Form>
   );
 }
 
-const FormikSignUpForm = withFormik({
+const FormikSignUpComponent = withFormik({
   mapPropsToValues({ username, password, landowner }) {
     return {
       username: username || "",
@@ -44,21 +44,7 @@ const FormikSignUpForm = withFormik({
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
     console.log("Sign Up form submission with values", values);
-    // if (values.email === "alreadytaken@atb.dev") {
-    //   setErrors({ email: "That email is already taken" });
-    // } else {
-    //   axios
-    //     .post("https://yourdatabaseurlgoeshere.com", values)
-    //     .then(res => {
-    //       console.log(res); // Data was created successfully and logs to console
-    //       resetForm();
-    //       setSubmitting(false);
-    //     })
-    //     .catch(err => {
-    //       console.log(err); // There was an error creating the data and logs to console
-    //       setSubmitting(false);
-    //     });
-    // }
+
   }
 
 })(SignUpForm);
