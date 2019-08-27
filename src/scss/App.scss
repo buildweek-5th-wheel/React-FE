@@ -2,22 +2,47 @@ div {
   color: blue;
   text-align: center;
 }
+.land-list-parent{
+  text-align: center;
+  color:black;
+}
+.owner-list-parent{
+  background: lightgray;
+}
 img{
 width: 20rem;
 height: 15rem;
 }
 .land-list{
+  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.land-list-owner{
+  
+ 
+  display: flex;
+flex-direction: column;
+  justify-content: space-between;
+} 
+
 
 .land-card{
+ 
+  color:black;
  margin: 3rem;
  background: lightgrey;
+ border:1px solid black;
 }
 .owner-card{
+  color:black;
   margin: 3rem;  
   background: lightgrey;
+  
 }
-
+.footer-container{
+  color: black;
+  border: 1px solid black;
+  text-align: center;
+}
