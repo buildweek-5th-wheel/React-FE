@@ -10,6 +10,8 @@ import data from "./components/DummyData.js";
 import LandCard from "./components/CardListings.js";
 import PrivateRoute from "./util/PrivateRoute";
 import LoginComponents from "./components/loginComponent";
+import userAccount from "./components/userAccountComponent";
+import myListing from "./components/myListing";
 
 const App = () => {
   return (
@@ -21,8 +23,11 @@ const App = () => {
       {/* ROUTES */}
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <PrivateRoute exact path="/login" component={LoginComponents} />
-        <PrivateRoute path="/register" component={SignupComponent} />
+        <Route exact path="/login" component={LoginComponents} />
+        <Route path="/register" component={SignupComponent} />
+
+        <PrivateRoute path="/account" component={userAccount} />
+        <PrivateRoute path="/listing" component={myListing} />
       </Switch>
     </Router>
   );
