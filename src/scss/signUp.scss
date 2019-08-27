@@ -1,3 +1,21 @@
 .signUp{
     margin: 25% auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        width: 10%;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .checkbox{
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: baseline;
+    }
 }
