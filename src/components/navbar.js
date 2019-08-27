@@ -1,14 +1,43 @@
-import React from "react";
-import { Route, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Menu } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
+  const [active, setActive] = useState({
+    activeItem: "Account Settings"
+  });
+
+  const Nav = props => <NavLink exact {...props} activeClassName="active" />;
+
+  const handleClick = ({ name }) => {
+    setActive({ activeItem: name });
+  };
+
   return (
     <>
-      <Route>
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
-      </Route>
+      <Menu>
+        <Menu.Item
+          name="Account Settings"
+          active={active.activeItem === "Account Settings"}
+          onClick={handleClick}
+          as={Nav}
+          to={`/account`}
+        />
+        <Menu.Item
+          name="listing"
+          active={active.activeItem === "listing"}
+          onClick={handleClick}
+          as={Nav}
+          to={`/listing`}
+        />
+        <Menu.Item
+          name="RV spots"
+          active={active.activeItem === "RV spots"}
+          onClick={handleClick}
+          as={Nav}
+          to={`/`}
+        />
+      </Menu>
     </>
   );
 };

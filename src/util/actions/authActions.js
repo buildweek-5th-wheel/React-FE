@@ -7,8 +7,8 @@ export const doSignIn = data => dispatch => {
   return AuthRoute()
     .post("/auth/login", data)
     .then(res => {
-      localStorage.setItem("token", res.data.token);
       dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
+      localStorage.setItem("token", res.data.token);
     })
     .catch(err => {
       dispatch({ type: types.LOGIN_FAIL, payload: err });
@@ -22,8 +22,8 @@ export const doRegister = data => dispatch => {
   return AuthRoute()
     .post("/auth/register", data)
     .then(res => {
-      localStorage.setItem("token", res.data.token);
       dispatch({ type: types.REGISTER_USER_SUCCESS, payload: res.data });
+      localStorage.setItem("token", res.data.token);
     })
     .catch(err => {
       dispatch({ type: types.REGISTER_USER_FAIL, payload: err });

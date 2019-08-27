@@ -2,7 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import { doSignIn } from "../util/actions/authActions";
+import { doSignIn, setAuthorization } from "../util/actions/authActions";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 
