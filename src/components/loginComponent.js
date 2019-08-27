@@ -3,36 +3,29 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "../../src/scss/formStyles.scss";
 
-//Stretch ideas: add password limits including regex
-
-function SignUpForm({ values, errors, touched, isSubmitting }) {
+function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form>
-      <div>
-        <p>User Name</p>
-        {touched.username && errors.username && <p>{errors.username}</p>}
-        <Field type="username" name="username" placeholder="username" />
+      <div className="username field">
+        <label>Username</label>
+        {touched.username && errors.username && <p className="error">{errors.username}</p>}
+        <Field type="username" name="username" placeholder="Username" />
       </div>
-      <div>
-        <p>Password</p>
-        {touched.password && errors.password && <p>{errors.password}</p>}
+      <div className="password field">
+        <label>Password</label>
+        {touched.password && errors.password && <p className="error">{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
       </div>
-      <label>
-        <Field type="checkbox" name="landowner" checked={values.landowner} />
-        Landowner
-      </label>
       <button disabled={isSubmitting}>Submit</button>
     </Form>
   );
 }
 
-const FormikSignUpForm = withFormik({
-  mapPropsToValues({ username, password, landowner }) {
+const FormikLoginForm = withFormik({
+  mapPropsToValues({ username, password }) {
     return {
       username: username || "",
-      password: password || "",
-      landowner: landowner || false
+      password: password || ""
     };
   },
   validationSchema: Yup.object().shape({
@@ -45,7 +38,7 @@ const FormikSignUpForm = withFormik({
   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    console.log("Sign Up form submission with values", values);
+    console.log("Login form submission with values", values);
     // if (values.email === "alreadytaken@atb.dev") {
     //   setErrors({ email: "That email is already taken" });
     // } else {
@@ -62,7 +55,6 @@ const FormikSignUpForm = withFormik({
     //     });
     // }
   }
+})(LoginForm);
 
-})(SignUpForm);
-
-export default FormikSignUpForm;
+export default FormikLoginComponent;
