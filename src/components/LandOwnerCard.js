@@ -14,6 +14,7 @@ const OwnerCard = (props) => {
 
             <img src={props.owner.img_url} />
             <h1>Name:{props.owner.listing_name}</h1>
+            <h3>Listing ID:{props.owner.listing_id}</h3>
             <h3>User:{props.owner.user_id}</h3>
             <h3>Description:{props.owner.description}</h3>
         </div>

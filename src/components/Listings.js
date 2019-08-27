@@ -21,7 +21,7 @@ export default function LandListings() {
 
 
     return (
-        <div>
+        <div className= "land-list-parent">
 <h1>Available land</h1>
         
         <section className="land-list">

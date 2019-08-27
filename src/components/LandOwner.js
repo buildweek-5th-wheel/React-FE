@@ -22,7 +22,7 @@ export default function OwnerListings() {
 
 
     return (
-        <div>
+        <div className="land-list-parent">
 
             <h1>Your land listings:</h1>
 
