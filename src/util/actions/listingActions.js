@@ -29,5 +29,12 @@ export const postListing = lists => dispatch => {
 
 export const updateListing = lists => dispatch => {
   dispatch({ type: types.UPDATE_LISTING_START });
-  return AuthRoute().put(`/listing/${lists.id}`, lists);
+  return AuthRoute()
+    .put(`/listings/${lists.listing_id}`, lists)
+    .then(res =>
+      dispatch({ type: types.UPDATE_LISTING_SUCCESS, payload: res.data })
+    )
+    .catch(err =>
+      dispatch({ type: types.UPDATE_LISTING_FAILURE, payload: err })
+    );
 };

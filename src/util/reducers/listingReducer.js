@@ -74,8 +74,7 @@ export default (state = initialState, action) => {
         errors: payload,
         isSuccess: false
       };
-
-    default:
+    case types.default:
       return state;
   }
 };
