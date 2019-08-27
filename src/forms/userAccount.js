@@ -17,7 +17,7 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
       <div>
         <Field component="textarea" name="bio" placeholder="bio" />
       </div>
-      <button disabled={isSubmitting}>Save Changes</button>
+      <button type="submit" >Save Changes</button>
     </Form>
   );
 }
