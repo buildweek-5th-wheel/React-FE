@@ -2,3 +2,22 @@ div {
   color: blue;
   text-align: center;
 }
+img{
+width: 20rem;
+height: 15rem;
+}
+.land-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.land-card{
+ margin: 3rem;
+ background: lightgrey;
+}
+.owner-card{
+  margin: 3rem;  
+  background: lightgrey;
+}
+
