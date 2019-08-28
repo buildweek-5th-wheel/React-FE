@@ -1,6 +1,6 @@
 import React from "react";
-import "./scss/App.scss";
 import "semantic-ui-css/semantic.min.css";
+import "./scss/App.scss";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import Header from "./pages/header";
@@ -12,7 +12,7 @@ import Login from "./forms/LoginForm";
 import Profile from "./components/ProfilePage";
 import ListingsPage from "./components/ListingsPage";
 import OwnerListing from "./components/LandOwner";
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 //Testing Area for Components
 import DumbPost from "./components/DummyPostListing";
 //Testing Area Components
@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/profile" component={Profile} />
         <Route path="/listing" component={ListingsPage} />
       </Switch>
-      <Footer/>
+      <Footer />
     </Router>
   );
 };

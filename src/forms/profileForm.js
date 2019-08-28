@@ -6,19 +6,23 @@ import ProfilePicture from "../images/roofTentSuv.jpg";
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="userAccount">
-      <img src={ProfilePicture} alt="A truck with a tent on the back"/>
+      <img src={ProfilePicture} alt="A truck with a tent on the back" />
       <h3>Edit the areas below to change</h3>
       <div>
         <p>User Name</p>
-        {touched.username && errors.username && <p className="error">{errors.username}</p>}
+        {touched.username && errors.username && (
+          <p className="error">{errors.username}</p>
+        )}
         <Field type="username" name="username" placeholder="username" />
       </div>
       <div>
         <p>Password</p>
-        {touched.password && errors.password && <p className="error">{errors.password}</p>}
+        {touched.password && errors.password && (
+          <p className="error">{errors.password}</p>
+        )}
         <Field type="password" name="password" placeholder="Password" />
       </div>
-      <button type="submit" >Save Changes</button>
+      <button type="submit">Save Changes</button>
     </Form>
   );
 }
@@ -41,8 +45,8 @@ const FormikUserAccountForm = withFormik({
   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-      console.log("User account form saved changes");
-      console.log(values);
+    console.log("User account form saved changes");
+    console.log(values);
   }
 })(UserAccountForm);
 
