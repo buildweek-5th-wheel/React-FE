@@ -40,15 +40,22 @@ const Navbar = () => {
             as={Nav}
             to={`/profile`}
           />
+          <Menu.Item
+            name="Bookings"
+            active={active.activeItem === "Bookings"}
+            onClick={handleClick}
+            as={Nav}
+            to={`/booking`}
+          />
         </Menu>
       ) : (
         <Menu>
           <Menu.Item
-            name="RV spots"
-            active={active.activeItem === "RV spots"}
+            name="Marketplace"
+            active={active.activeItem === "Marketplace"}
             onClick={handleClick}
             as={Nav}
-            to={`/`}
+            to={`/listing`}
           />
           <Menu.Item
             name="Login"

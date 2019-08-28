@@ -7,11 +7,6 @@ import "../scss/LandOwner.scss";
 
 
 const OwnerCard = props => {
-
-
-
-
-  
   return (
     <Card key={props["listing_id"]}>
       <Image src={props.owner["img_url"]} wrapped ui={false} />
@@ -34,11 +29,6 @@ const OwnerCard = props => {
 export default OwnerCard;
 
 // const OwnerCard = props => {
-
-
-
-
-
 //   return (
 //     <Card className="owner-card " key={props.listing_id}>
 //       <img src={props.owner.img_url} />

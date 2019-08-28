@@ -24,9 +24,6 @@ const UserAccountComponent = props => {
     setUser(props.user);
   }, [props.user]);
 console.log(user)
-  // props = {userAccountData: {username: "DevinIsCool", password: "awpoefijapwoeifjaaowiejf", "img_url": "https://images.unsplash.com/photo-1567016546367-c27a0d56712e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80", bio: "I am a cool person"}}
-  // //rename incase we change props naming
-  //const userAccountData = props.userAccountData;
 
   const EditButtonModal = ({user}) => (
     <Modal trigger={<Button>Edit</Button>}>

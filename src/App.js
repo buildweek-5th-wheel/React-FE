@@ -13,6 +13,7 @@ import Profile from "./components/ProfilePage";
 import ListingsPage from "./components/ListingsPage";
 import OwnerListing from "./components/LandOwner";
 import Footer from "./components/Footer";
+import BookingsPage from "./components/BookingsPage";
 //Testing Area for Components
 import DumbPost from "./components/DummyPostListing";
 //Testing Area Components
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/login" component={Login} />
         <Route path="/register" component={SignupComponent} />
         <Route path="/userListing" component={OwnerListing} />
+        <Route path="/booking" component={BookingsPage} />
         {/** PLACE A PRIVATE ROUTE AFTER */}
         <Route path="/profile" component={Profile} />
         <Route path="/listing" component={ListingsPage} />
