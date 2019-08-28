@@ -2,16 +2,26 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "../../src/scss/formStyles.scss";
+import "../../src/scss/addListing.scss";
 
 function AddListingForm({ values, errors, touched, isSubmitting }) {
+  const uploadFile = (event) => {
+    console.log(event.target.files[0]);
+  }
   return (
-    <Form>
+    <Form className="addListing">
       <h1>Add a Listing</h1>
 
       <div>
         <p>Listing Name</p>
         {touched.username && errors.username && <p>{errors.username}</p>}
         <Field type="username" name="username" placeholder="username" />
+      </div>
+
+      <div>
+        <img src="" alt="listing"/>
+        <Field type="file" name="file" onChange={uploadFile}/>
+        <button>Upload</button>
       </div>
 
       <div>
