@@ -26,8 +26,8 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
 
       <div>
         <p>Bio</p>
-        {touched.password && errors.password && <p className="error">{errors.password}</p>}
-        <Field type="textarea" name="bio" placeholder="bio"/>
+        {touched.bio && errors.bio && <p className="error">{errors.bio}</p>}
+        <Field component={"textarea"} type="textarea" name="bio" placeholder="bio"/>
       </div>
 
       <button type='submit' disabled={isSubmitting}>Save Changes</button>

@@ -4,7 +4,17 @@ import "../scss/LandOwner.scss";
 
 //Land owner user page
 
-
+// const AddListingButtonModal = () => (
+//   <Modal trigger={<Button className="add">Add</Button>}>
+//     <Modal.Header>Add a Listing</Modal.Header>
+//     <Modal.Content image>
+//       <Image wrapped size='medium' src={LandImg} />
+//       <Modal.Description>
+//         <AddListingForm />
+//       </Modal.Description>
+//     </Modal.Content>
+//   </Modal>
+// )
 
 
 const OwnerCard = props => {
