@@ -27,7 +27,6 @@ const DumbPost = props => {
         onClick={() => {
           props.postListing(data);
           props.getListing();
-          props.getListing();
         }}
       >
         Press to Post
