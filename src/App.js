@@ -20,7 +20,7 @@ import DumbPost from "./components/DummyPostListing";
 const App = () => {
   return (
     <Router>
-      {/* NAVBAR */}
+      <Navbar />
       <Header />
       <Link to="/">Homepage </Link>
       <br />
