@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Icon, Image } from 'semantic-ui-react'
-import headerImg from "../images/headerImg.jpg";
+// import logo-nav-white from "..\images\logo-nav-white.png";
 
 //All Land Listings
 const LandCard = props => {
@@ -11,7 +11,7 @@ const LandCard = props => {
       <h2>Book today:</h2> 
         <Card.Header>{props.land["listing_name"]}</Card.Header>
         <Card.Meta>
-        <img src={headerImg} alt="A van parked near a sunset"/>
+        {/* <img src={logo-nav-white} alt=""/> */}
         </Card.Meta>
         <Card.Description>
           {props.land.description}

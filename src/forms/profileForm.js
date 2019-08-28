@@ -1,10 +1,12 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import ProfilePicture from "../images/roofTentSuv.jpg";
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="userAccount">
+      <img src={ProfilePicture} alt="A truck with a tent on the back"/>
       <h3>Edit the areas below to change</h3>
       <div>
         <p>User Name</p>

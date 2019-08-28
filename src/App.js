@@ -11,6 +11,7 @@ import PrivateRoute from "./util/PrivateRoute";
 import Login from "./forms/LoginForm";
 import Profile from "./components/ProfilePage";
 import ListingsPage from "./components/ListingsPage";
+import OwnerListing from "./components/LandOwner";
 
 //Testing Area for Components
 import DumbPost from "./components/DummyPostListing";
@@ -25,7 +26,7 @@ const App = () => {
       <br />
       <Link to="/profile">TESTING:User Profile </Link>
       <br />
-      <Link to="">TESTING:Land Owner Listings </Link>
+      <Link to="/userListing">TESTING:Land Owner Listings </Link>
       <br />
       <Link to="/listing">TESTING: ALL LISTINGS </Link>
       <br />
@@ -37,7 +38,7 @@ const App = () => {
         <Route exact path="/" component={ListingsPage} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={SignupComponent} />
-
+        <Route path="/userListing" component={OwnerListing} />
         {/** PLACE A PRIVATE ROUTE AFTER */}
         <Route path="/profile" component={Profile} />
         <Route path="/listing" component={ListingsPage} />
@@ -46,3 +47,5 @@ const App = () => {
   );
 };
 export default App;
+
+//remove to in link, remove route on line 41, line 14 as well
