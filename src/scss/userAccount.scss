@@ -4,27 +4,27 @@
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    form{
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 5px 5px black;
+        padding: 10px;
 
-    .profilePic{
-        width: 50%;
-        margin: 0 auto;
-    }
+        input{
+            background: rgb(236, 236, 236);
+    
+            &:hover{
+                background: white;
+            }
+        }
 
-    .error{
-        color: red;
-    }
-
-    input, textarea{
-        background: lightgrey;
-
-        &:hover{
-            background: white;
+        button{
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgb(46, 250, 46);
+            padding: 10px;
         }
     }
-
-    button{
-        margin: 10px;
-        border-radius: 5px;
-        font-size: 1rem;
-    }
+   
 }

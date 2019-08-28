@@ -8,7 +8,7 @@ export default
 
             user_id: 1,
 
-            description: "Description 1",
+            description: ,
 
             img_url: "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
 

@@ -5,6 +5,7 @@ import * as Yup from "yup";
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="userAccount">
+      <h3>Edit the areas below to change</h3>
       <div>
         <p>User Name</p>
         {touched.username && errors.username && <p className="error">{errors.username}</p>}
@@ -14,10 +15,6 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
         <p>Password</p>
         {touched.password && errors.password && <p className="error">{errors.password}</p>}
         <Field type="password" name="password" placeholder="Password" />
-      </div>
-      <div>
-        <p>Bio</p>
-        <Field component="textarea" name="bio" placeholder="bio" />
       </div>
       <button type="submit" >Save Changes</button>
     </Form>

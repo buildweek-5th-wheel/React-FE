@@ -3,15 +3,45 @@ div {
   text-align: center;
 }
 
+.Land-List-Parent{
+  h1{
+  margin-bottom:3rem;
+  color:black;
+  }
+}
+
+div {
+  color: black;
+  text-align: center;
+}
+
+
 .land-list{
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   
   div.ui{
-    border: 2px solid pink;
+    border: 2px solid black;
     margin: 20px;  
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 5rem;
+    color: blue;
+    height:30rem;
+    background:#E5E5E5;
+    box-shadow: 5px 1px 20px #111;
+    font-size: 1.1rem;
+    &:hover {
+      transform: scale(1.05);
+    } 
+    
   }
+}
+.LandCard-Edit-Button{
+  height: 2rem;
+  border-radius: 5px;
+  &:hover {
+    transform: scale(1.05);
+  
+  } 
 }
