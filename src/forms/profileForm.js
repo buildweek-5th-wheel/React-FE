@@ -13,14 +13,19 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
         {touched.imgUrl && errors.imgUrl && <p className="error">{errors.imgUrl}</p>}
         <Field type="text" name="imgUrl" placeholder="Image Url" />
       </div>
+
       <div>
         <p>User Name</p>
-        {touched.username && errors.username && <p className="error">{errors.username}</p>}
+        {touched.username && errors.username && (
+          <p className="error">{errors.username}</p>
+        )}
         <Field type="username" name="username" placeholder="username" />
       </div>
       <div>
         <p>Password</p>
-        {touched.password && errors.password && <p className="error">{errors.password}</p>}
+        {touched.password && errors.password && (
+          <p className="error">{errors.password}</p>
+        )}
         <Field type="password" name="password" placeholder="Password" />
       </div>
 
@@ -31,7 +36,6 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
       </div>
 
       <button type='submit' disabled={isSubmitting}>Save Changes</button>
-
     </Form>
   );
 }
@@ -55,8 +59,8 @@ const FormikUserAccountForm = withFormik({
   }),
 
   handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-      console.log("User account form saved changes");
-      console.log(values);
+    console.log("User account form saved changes");
+    console.log(values);
   }
 })(UserAccountForm);
 
