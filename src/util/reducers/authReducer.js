@@ -66,6 +66,74 @@ export default (state = initialState, action) => {
         isSuccess: false
       };
 
+    case types.GET_USER_START:
+      return {
+        ...state,
+        isLoading: true,
+        errors: null,
+        isAuth: true,
+        isSuccess: false
+      };
+
+    case types.GET_USER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        user: payload,
+        isSuccess: true
+      };
+
+    case types.GET_USER_FAILURE:
+      return {
+        ...state,
+        errors: payload,
+        isLoading: false
+      };
+
+    case types.EDIT_USER_START:
+      return {
+        ...state,
+        isLoading: true,
+        isAuth: true,
+        isSuccess: false
+      };
+
+    case types.EDIT_USER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        user: payload,
+        isSuccess: true
+      };
+    case types.EDIT_USER_FAILURE:
+      return {
+        ...state,
+        errors: payload,
+        isLoading: false
+      };
+
+    case types.DELETE_USER_START:
+      return {
+        ...state,
+        isLoading: true,
+        isAuth: true,
+        isSuccess: false
+      };
+    case types.DELETE_USER_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: false,
+        user: payload,
+        isSuccess: true
+      };
+    case types.DELETE_USER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: payload
+      };
+
     /** SET AUTH */
     case types.SET_AUTH:
       return {

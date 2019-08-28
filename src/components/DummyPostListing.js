@@ -1,48 +1,27 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import {
-  postListing,
-  getListing,
-  updateListing,
-  deleteListing
-} from "../util/actions/listingActions";
+import AuthRoute from "../util/AuthRoute";
+import { getUser, editUser, deleteUser } from "../util/actions/authActions";
 
 const DumbPost = props => {
-  const data = {
-    listing_name: "SOME STUFF",
-    user_id: 1
+  const dummyUser = {
+    id: 1,
+    bio: "WE ARE REALLY COOL"
   };
   useEffect(() => {
-    props.getListing();
+    // AuthRoute()
+    //   .get(`/users`)
+    //   .then(res => console.log(res));
   }, []);
-
-  const editListing = {
-    listing_id: 1,
-    listing_name: "ADNAN AND DENNIS WAS HERE"
-  };
 
   return (
     <div>
-      <button
-        onClick={() => {
-          props.postListing(data);
-          props.getListing();
-        }}
-      >
-        Press to Post
+      <h2>Use the Console to test information</h2>
+      {console.log(props.user)}
+      <button onClick={() => props.editUser(dummyUser)}>
+        Press to edit the user
       </button>
-      <button
-        onClick={() => {
-          console.log(props.user);
-        }}
-      >
-        Get Some LOCAL STATE listings
-      </button>
-      <button onClick={() => props.updateListing(editListing)}>
-        PUT request to update listing
-      </button>
-      <button onClick={() => props.deleteListing(9)}>Delete Listing 1</button>
-      Check console for post confirmation
+      <button onClick={() => props.deleteUser(6)}>Delete User</button>
     </div>
   );
 };
@@ -54,5 +33,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { postListing, getListing, updateListing, deleteListing }
+  { getUser, editUser, deleteUser }
 )(DumbPost);

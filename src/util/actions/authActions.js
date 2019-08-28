@@ -31,3 +31,40 @@ export const doRegister = data => dispatch => {
       console.log(err.response);
     });
 };
+
+/** GET USER PROFILE */
+export const getUser = id => dispatch => {
+  dispatch({ type: types.GET_USER_START });
+  return AuthRoute()
+    .get(`/users/${id}`)
+    .then(res => {
+      console.log("TEST RES DATA", res.data);
+      dispatch({ type: types.GET_USER_SUCCESS, payload: res.data });
+    })
+    .catch(err => dispatch({ type: types.GET_USER_FAILURE, payload: err }));
+};
+
+// EDIT USER PROFILE
+export const editUser = user => dispatch => {
+  dispatch({ type: types.EDIT_USER_START });
+  return AuthRoute()
+    .put(`/users/${user.id}`, user)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: types.EDIT_USER_SUCCESS, payload: user });
+    })
+    .catch(err => dispatch({ type: types.EDIT_USER_FAILURE, payload: err }));
+};
+
+// DELETE USER PROFILE
+export const deleteUser = id => dispatch => {
+  dispatch({ type: types.DELETE_USER_START });
+  return AuthRoute()
+    .delete(`/users/${id}`)
+    .then(res => {
+      dispatch({ type: types.DELETE_LISTING_SUCCESS, payload: null });
+    })
+    .catch(err =>
+      dispatch({ type: types.DELETE_LISTING_FAILURE, payload: err })
+    );
+};
