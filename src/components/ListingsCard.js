@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Icon, Image } from 'semantic-ui-react'
+import "../scss/Listings.scss";
 // import logo-nav-white from "..\images\logo-nav-white.png";
 
 //All Land Listings

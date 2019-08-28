@@ -4,9 +4,10 @@ import data from "./DummyData.js"
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import LandImg from "../images/land1.jpg";
 import AddListingForm from "../forms/addListingForm";
+import "../scss/LandOwner.scss";
 
 const AddListingButtonModal = () => (
-    <Modal trigger={<Button>Add a Listing</Button>}>
+    <Modal trigger={<Button className="add">Add</Button>}>
       <Modal.Header>Add a Listing</Modal.Header>
       <Modal.Content image>
         <Image wrapped size='medium' src={LandImg} />

@@ -7,20 +7,19 @@ import "../../src/scss/addListing.scss";
 function AddListingForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="addListing">
-      <h1>Add a Listing</h1>
+      <div className="inputs">
+        <div>
+          <p>Listing Name</p>
+          {touched["listing_name"] && errors["listing_name"] && <p>{errors["listing_name"]}</p>}
+          <Field type="text" name="listing_name" placeholder="listing_name" />
+        </div>
 
-      <div>
-        <p>Listing Name</p>
-        {touched["listing_name"] && errors["listing_name"] && <p>{errors["listing_name"]}</p>}
-        <Field type="text" name="listing_name" placeholder="listing_name" />
+        <div>
+          <p>Description</p>
+          <Field component="textarea" name="description" placeholder="Description" />
+        </div>
       </div>
-
-      <div>
-        <p>Description</p>
-        <Field component="textarea" name="description" placeholder="Description" />
-      </div>
-    
-      <button type="submit" disabled={isSubmitting}>Add Listing</button>
+      <button type="submit" disabled={isSubmitting}>Add</button>
     </Form>
   );
 }
