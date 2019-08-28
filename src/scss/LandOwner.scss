@@ -10,7 +10,6 @@ div.ui.modal.transition.visible.active{
   }
 
   .description{
-    border: 1px solid black;
     width: 75%;
     margin: 0 auto;
 
@@ -33,7 +32,12 @@ div.ui.modal.transition.visible.active{
           width: 45%;
         }
       }
-    
+      
+      button.addListingModal{
+        background: #2E6A8F;
+        padding: 1% 2%;
+        color: white;
+      }
     }
   }
 

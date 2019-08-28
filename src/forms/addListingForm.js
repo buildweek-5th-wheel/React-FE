@@ -19,7 +19,7 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
           <Field component="textarea" name="description" placeholder="Description" />
         </div>
       </div>
-      <button type="submit" disabled={isSubmitting}>Add</button>
+      <button className="addListingModal"type="submit" disabled={isSubmitting}>Add</button>
     </Form>
   );
 }
