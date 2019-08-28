@@ -1,8 +1,91 @@
-.owner-card {
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 3rem;
-  background: #9497a4;
-  border: 1px solid black;
-  font-size: 20px;
+button.ui.add.button{
+  margin: 1% 0% 3% 0%;
+  background: rgb(85, 255, 85);
+}
+
+div.ui.modal.transition.visible.active{
+  img{
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .description{
+    width: 75%;
+    margin: 0 auto;
+
+    .addListing{
+      width: 100%;
+      margin: 0 auto;
+
+      .inputs{
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        p{
+          font-size: 1.5rem;
+        }
+
+        div{
+          width: 45%;
+        }
+      }
+      
+      button.addListingModal{
+        background: #2E6A8F;
+        padding: 1% 2%;
+        color: white;
+      }
+    }
+  }
+
+
+
+
+  textarea{
+    border-radius: 5px;
+  }
+}
+.land-list-owner{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  
+  div.ui{
+    width:38%;
+    border: 2px solid black;
+    margin: 20px;  
+    margin-top: 0;
+    margin-bottom: 5rem;
+    color: blue;
+    height:auto;
+    background:#E5E5E5;
+    box-shadow: 5px 1px 20px #111;
+    font-size: 1.1rem;
+    &:hover {
+      transform: scale(1.05);
+    } 
+    
+  }
+
+  //Last card
+  .ui.card:last-child {
+    margin-bottom: 5rem;
+  }
+
+  //first card
+  .ui.card:first-child {
+    margin-top: 0;
+  }
+
+}
+.LandCard-Edit-Button{
+  height: 2rem;
+  border-radius: 5px;
+  &:hover {
+    transform: scale(1.05);
+  
+  } 
 }

@@ -5,11 +5,13 @@ import { connect } from "react-redux";
 import { doSignIn } from "../util/actions/authActions";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/login.scss";
+import headerImg from "../images/headerImg.jpg";
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="login">
-      <h3>Welcome to the login page</h3>
+      <img src={headerImg} alt="A van parked near a sunset"/>
+      <h3>Please Log In</h3>
       <div className="username field">
         <label>Username</label>
         {touched.username && errors.username && (
