@@ -133,6 +133,53 @@ export default (state = initialState, action) => {
         isLoading: false,
         errors: payload
       };
+    case types.BOOKING_LISTING_START:
+      return {
+        ...state,
+        isLoading: true,
+        isAuth: true,
+        isSuccess: false
+      };
+    case types.BOOKING_LISTING_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: true,
+        isSuccess: true,
+        user: { ...state.user, bookings: state.user.bookings.push(payload) }
+      };
+    case types.BOOKING_LISTING_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload
+      };
+    case types.DELETE_BOOKING_START:
+      return {
+        ...state,
+        isLoading: true,
+        isAuth: true,
+        isSuccess: false
+      };
+    case types.DELETE_BOOKING_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: true,
+        isSuccess: true,
+        user: {
+          ...state.user,
+          bookings: state.user.bookings.filter(
+            booking => booking.booking_id !== payload.booking_id
+          )
+        }
+      };
+    case types.DELETE_BOOKING_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errors: payload
+      };
 
     /** SET AUTH */
     case types.SET_AUTH:

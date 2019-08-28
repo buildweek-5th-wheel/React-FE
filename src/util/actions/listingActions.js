@@ -9,7 +9,6 @@ export const getListing = () => dispatch => {
   return axios
     .get(`https://bw-5th-wheel.herokuapp.com/listings`)
     .then(res => {
-      //console.log("CHECK THIS PART", res.data);
       dispatch({ type: types.GET_LISTING_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: types.GET_LISTING_FAILURE, payload: err }));
