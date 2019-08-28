@@ -9,7 +9,6 @@ export const getListing = () => dispatch => {
   return axios
     .get(`https://bw-5th-wheel.herokuapp.com/listings`)
     .then(res => {
-      //console.log("CHECK THIS PART", res.data);
       dispatch({ type: types.GET_LISTING_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: types.GET_LISTING_FAILURE, payload: err }));
@@ -32,7 +31,7 @@ export const updateListing = lists => dispatch => {
   return AuthRoute()
     .put(`/listings/${lists.listing_id}`, lists)
     .then(res =>
-      dispatch({ type: types.UPDATE_LISTING_SUCCESS, payload: res.data })
+      dispatch({ type: types.UPDATE_LISTING_SUCCESS, payload: lists })
     )
     .catch(err =>
       dispatch({ type: types.UPDATE_LISTING_FAILURE, payload: err })
