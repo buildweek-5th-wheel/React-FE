@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import "../scss/LandOwner.scss";
 
 //Land owner user page
@@ -21,6 +21,8 @@ const OwnerCard = props => {
       </Card.Content>
       <Card.Content extra>
         {/* <button className="LandCard-Edit-Button">Edit (testing)</button> */}
+        <Button >Edit</Button>
+        <Button negative>Delete</Button>
       </Card.Content>
     </Card>
   );
