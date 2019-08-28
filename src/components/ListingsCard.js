@@ -9,6 +9,8 @@ const LandCard = props => {
       <Card.Content>
       <h2>Book today:</h2> 
         <Card.Header>{props.land["listing_name"]}</Card.Header>
+        <Card.Meta>
+        "image=\images\logo-nav-white.png"</Card.Meta>
         <Card.Description>
           {props.land.description}
         </Card.Description>

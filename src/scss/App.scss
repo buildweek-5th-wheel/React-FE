@@ -27,7 +27,7 @@ div {
     margin-top: 0;
     margin-bottom: 5rem;
     color: blue;
-    height:30rem;
+    height:auto;
     background:#E5E5E5;
     box-shadow: 5px 1px 20px #111;
     font-size: 1.1rem;
@@ -36,6 +36,17 @@ div {
     } 
     
   }
+
+  //Last card
+  .ui.card:last-child {
+    margin-bottom: 5rem;
+  }
+
+  //first card
+  .ui.card:first-child {
+    margin-top: 0;
+  }
+
 }
 .LandCard-Edit-Button{
   height: 2rem;

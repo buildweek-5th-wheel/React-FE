@@ -1,9 +1,16 @@
 .login{
-    margin: 25% auto;
+    margin: 5% auto;
     width: 25%;
     border: 2px solid grey;
     border-radius: 5px;
-    
+
+    img{
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+        z-index: -1;
+    }
+
     .field{
         display: flex;
         flex-flow: column wrap;
