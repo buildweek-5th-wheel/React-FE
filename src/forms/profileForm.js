@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import ProfilePicture from "../images/roofTentSuv.jpg";
+
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="userAccount">
-      <img src={ProfilePicture} alt="A truck with a tent on the back" />
-      <h3>Edit the areas below to change</h3>
+      <img src={values.imgUrl} alt=""/>
+
+      <div>
+        <p>Image Url</p>
+        {touched.imgUrl && errors.imgUrl && <p className="error">{errors.imgUrl}</p>}
+        <Field type="text" name="imgUrl" placeholder="Image Url" />
+      </div>
+
       <div>
         <p>User Name</p>
         {touched.username && errors.username && (
@@ -22,17 +28,25 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
         )}
         <Field type="password" name="password" placeholder="Password" />
       </div>
-      <button type="submit">Save Changes</button>
+
+      <div>
+        <p>Bio</p>
+        {touched.bio && errors.bio && <p className="error">{errors.bio}</p>}
+        <Field component={"textarea"} type="textarea" name="bio" placeholder="bio"/>
+      </div>
+
+      <button type='submit' disabled={isSubmitting}>Save Changes</button>
     </Form>
   );
 }
 
 const FormikUserAccountForm = withFormik({
-  mapPropsToValues({ username, password, bio }) {
+  mapPropsToValues({ username, password, bio, imgUrl }) {
     return {
       username: username || "",
       password: password || "",
-      bio: bio || ""
+      bio: bio || "",
+      imgUrl: imgUrl || ""
     };
   },
   validationSchema: Yup.object().shape({
@@ -40,13 +54,13 @@ const FormikUserAccountForm = withFormik({
       .min(6, "Username must be 6 characters or longer")
       .required("Username is required"),
     password: Yup.string()
-      .min(16, "Password must be 16 characters or longer")
+      .min(5, "Password must be 5 characters or longer")
       .required("Password is required")
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    console.log("User account form saved changes");
-    console.log(values);
+  handleSubmit(values) {
+      console.log("User account form saved changes");
+      console.log(values);
   }
 })(UserAccountForm);
 

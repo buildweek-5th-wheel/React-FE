@@ -52,7 +52,7 @@ const LoginComponent = withFormik({
   handleSubmit(values, formikBag) {
     console.log("Login form submission with values", values);
     formikBag.props.doSignIn(values);
-    formikBag.props.history.push("/");
+    //formikBag.props.history.push("/");
   }
 })(LoginForm);
 
