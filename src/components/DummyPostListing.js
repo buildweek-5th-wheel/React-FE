@@ -27,14 +27,13 @@ const DumbPost = props => {
         onClick={() => {
           props.postListing(data);
           props.getListing();
-          props.getListing();
         }}
       >
         Press to Post
       </button>
       <button
         onClick={() => {
-          console.log(props.listing);
+          console.log(props.user);
         }}
       >
         Get Some LOCAL STATE listings
@@ -49,7 +48,8 @@ const DumbPost = props => {
 };
 
 const mapStateToProps = state => ({
-  listing: state.listingReducer.listingItems
+  listing: state.listingReducer.listingItems,
+  user: state.authReducer
 });
 
 export default connect(

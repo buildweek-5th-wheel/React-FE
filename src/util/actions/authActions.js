@@ -7,9 +7,9 @@ export const doSignIn = data => dispatch => {
   return AuthRoute()
     .post("/auth/login", data)
     .then(res => {
+      console.log("checking the data", res);
       localStorage.setItem("token", res.data.token);
-      dispatch({ type: types.LOGIN_SUCCESS, payload: res });
-      console.log("checking the data", res.data);
+      dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
       dispatch({ type: types.LOGIN_FAILURE, payload: err });

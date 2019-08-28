@@ -20,17 +20,17 @@ export default (state = initialState, action) => {
         errors: null,
         isAuth: false
       };
-    case type.LOGIN_SUCCESS:
-      console.log(payload.user);
+    case types.LOGIN_SUCCESS:
+      console.log(payload);
       return {
         ...state,
         token: payload.token,
-        user: payload.user,
+        user: payload.id,
         isAuth: true,
         isLoading: false,
         isSuccess: true
       };
-    case types.LOGIN_FAIL:
+    case types.LOGIN_FAILURE:
       return {
         ...state,
         errors: payload,
@@ -65,6 +65,7 @@ export default (state = initialState, action) => {
         user: {},
         isSuccess: false
       };
+
     /** SET AUTH */
     case types.SET_AUTH:
       return {
