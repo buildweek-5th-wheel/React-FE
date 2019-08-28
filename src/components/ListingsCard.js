@@ -19,7 +19,7 @@ const LandCard = props => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <button className="LandCard-Edit-Button">Learn More</button>
+        <button className="LandCard-Edit-Button">Book</button>
       </Card.Content>
     </Card>
   );

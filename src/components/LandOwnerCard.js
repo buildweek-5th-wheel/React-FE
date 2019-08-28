@@ -4,6 +4,9 @@ import "../scss/LandOwner.scss";
 
 //Land owner user page
 
+
+
+
 const OwnerCard = props => {
 
 
