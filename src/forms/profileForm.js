@@ -54,7 +54,7 @@ const FormikUserAccountForm = withFormik({
       .required("Password is required")
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+  handleSubmit(values) {
       console.log("User account form saved changes");
       console.log(values);
   }

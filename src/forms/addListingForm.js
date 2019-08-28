@@ -7,42 +7,51 @@ import "../../src/scss/addListing.scss";
 function AddListingForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="addListing">
+      <img src={values.imgUrl} alt=""/>
+
       <div className="inputs">
         <div>
+          <p>Image Url</p>
+          {touched.imgUrl && errors.imgUrl && <p className="error">{errors.imgUrl}</p>}
+          <Field type="url" name="imgUrl" placeholder="Image Url" />
+        </div>
+
+        <div>
           <p>Listing Name</p>
-          {touched["listing_name"] && errors["listing_name"] && <p>{errors["listing_name"]}</p>}
-          <Field type="text" name="listing_name" placeholder="listing_name" />
+          {touched.listingName && errors.listingName && <p>{errors.listingName}</p>}
+          <Field type="username" name="listingName" placeholder="Listing Name" />
         </div>
 
         <div>
           <p>Description</p>
-          <Field component="textarea" name="description" placeholder="Description" />
+          {touched.description && errors.description && <p>{errors.description}</p>}
+          <Field component="textarea" name="description" placeholder="description" />
         </div>
       </div>
-      <button className="addListingModal"type="submit" disabled={isSubmitting}>Add</button>
+      <button className="addListingModal" type="submit" disabled={isSubmitting}>Add</button>
     </Form>
   );
 }
 
 const AddListingComponent = withFormik({
-  mapPropsToValues({ username, password, landowner }) {
+  mapPropsToValues({ imgUrl, listingName, description }) {
     return {
-      username: username || "",
-      password: password || "",
-      landowner: landowner || false
+      listingName: listingName || "",
+      imgUrl: imgUrl || "",
+      description: description || ""
     };
   },
   validationSchema: Yup.object().shape({
-    username: Yup.string()
-      .min(6, "Username must be 6 characters or longer")
-      .required("Username is required"),
-    password: Yup.string()
-      .min(16, "Password must be 16 characters or longer")
-      .required("Password is required")
+    listingName: Yup.string()
+      .min(4, "Listing must be 6 characters or longer")
+      .required("Listing is required"),
+      description: Yup.string()
+      .min(16, "Description must be 16 characters or longer")
+      .required("Description is required")
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
-    console.log("Sign Up form submission with values", values);
+  handleSubmit(values) {
+    console.log("Add Listing form submission with values", values);
 
   }
 

@@ -2,7 +2,11 @@ import { types } from "../actions";
 
 const initialState = {
   token: "",
-  user: null,
+  user: {
+    username: "",
+  password: "",
+  bio: "",
+  image_url: ""},
   isAuth: false,
   isLoading: false,
   errors: null,
