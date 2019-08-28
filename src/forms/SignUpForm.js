@@ -4,11 +4,12 @@ import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/signUp.scss";
-
+import SignUpImg from "../images/gooseNeckVine.jpg";
 
 function SignUpForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="signUp">
+      <img src={SignUpImg} alt="A truck with beautiful fields"/>
       <div>
         <h3>Sign Up!</h3>
         <p>User Name</p>
