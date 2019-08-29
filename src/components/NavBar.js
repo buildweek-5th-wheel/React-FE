@@ -4,11 +4,13 @@ import { NavLink } from "react-router-dom";
 import NavImg from "../images/logo-blue.png";
 import "../scss/NavBar.scss";
 import { connect } from "react-redux";
+import {withRouter} from "react-router-dom";
 
 const Navbar = props => {
   const [active, setActive] = useState({
     activeItem: "setting"
   });
+
 
   const Nav = props => <NavLink exact {...props} activeClassName="active" />;
 
@@ -57,6 +59,7 @@ const Navbar = props => {
               active={active.activeItem === "Logout"}
               onClick={() => {
                 localStorage.removeItem("token");
+                props.history.push("/")
               }}
               as={Nav}
               to={`/listing`}
@@ -99,4 +102,4 @@ const mapsStateToProps = state => ({
   isAuth: state.authReducer.isAuth
 });
 
-export default connect(mapsStateToProps)(Navbar);
+export default withRouter(connect(mapsStateToProps)(Navbar));
