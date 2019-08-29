@@ -16,14 +16,23 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
       <div>
         <h3>Sign Up!</h3>
         <p>User Name</p>
-        {touched.username && errors.username && <p>{errors.username}</p>}
-        <Field type="username" name="username" placeholder="username" />
+        <Field
+          style={(errors.username && touched.username) ? { border: "1px solid red" } : null} 
+          type="username" 
+          name="username" 
+          placeholder="username" />
+          {touched.username && errors.username && <p className="error">{errors.username}</p>}
       </div>
 
       <div>
         <p>Password</p>
-        {touched.password && errors.password && <p>{errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
+        
+        <Field
+          style={(errors.password && touched.password) ? { border: "1px solid red" } : null} 
+          type="password" 
+          name="password" 
+          placeholder="Password" />
+        {touched.password && errors.password && <p className="error">{errors.password}</p>}
       </div>
 
       <div className="checkbox">

@@ -23,10 +23,15 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
 
         <div>
           <p>User Name</p>
+
+          <Field 
+          style={(errors.username && touched.username) ? { border: "1px solid red" } : null}
+          type="username" 
+          name="username" 
+          placeholder="username" />
           {touched.username && errors.username && (
             <p className="error">{errors.username}</p>
           )}
-          <Field type="username" name="username" placeholder="username" />
         </div>
         {/* <div>
           <p>Password</p>

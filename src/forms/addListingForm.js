@@ -30,7 +30,7 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
             placeholder="Listing Name"
           />
           {touched.listing_name && errors.listing_name && (
-            <p>{errors.listing_name}</p>
+            <p className="error">{errors.listing_name}</p>
           )}
         </div>
 
@@ -43,7 +43,7 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
             placeholder="description"
           />
           {touched.description && errors.description && (
-            <p>{errors.description}</p>
+            <p className="error">{errors.description}</p>
           )}
         </div>
       </div>

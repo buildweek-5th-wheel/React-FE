@@ -10,19 +10,24 @@ function AddBookingForm({ values, errors, touched, isSubmitting, setFieldValue,
   return (
     <Form className="addListing">
       <img src={values.imgUrl} alt="" />
-
       <div className="inputs">
-
-
         <div>
         <p>Check-in</p>
-          {touched.checkin && errors.checkin && <p>{errors.checkin}</p>}
-          <Field type="date" name="checkin" placeholder="checkin" />
+          <Field 
+            style={(errors.checkin && touched.checkin) ? { border: "1px solid red" } : null}
+            type="date" 
+            name="checkin" 
+            placeholder="checkin" />
+          {touched.checkin && errors.checkin && <p className="error">{errors.checkin}</p>}
         </div>
         <div>
           <p>Check-out</p>
-          {touched.checkout && errors.checkout && <p>{errors.checkout}</p>}
-          <Field type="date" name="checkout" placeholder="checkout" />
+          <Field 
+            style={(errors.checkout && touched.checkout) ? { border: "1px solid red" } : null}
+            type="date" 
+            name="checkout" 
+            placeholder="checkout" />
+          {touched.checkout && errors.checkout && <p className="error">{errors.checkout}</p>}
         </div>
       </div>
       <Button className="positive" color="green" type="submit" disabled={isSubmitting}>Add</Button>

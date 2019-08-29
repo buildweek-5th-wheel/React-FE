@@ -1,9 +1,12 @@
 .login {
   margin: 5% auto;
-  width: 25%;
+  width: 25rem;
   border: 2px solid grey;
   border-radius: 5px;
   font-size: 1.2rem;
+  @media only screen and (max-width: 500px) {
+    width: 70%
+  }
   h3 {
     font-size: 2rem;
   }
