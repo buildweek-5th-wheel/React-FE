@@ -1,31 +1,40 @@
-.login{
-    margin: 5% auto;
-    width: 25%;
-    border: 2px solid grey;
-    border-radius: 5px;
+.login {
+  margin: 5% auto;
+  width: 25%;
+  border: 2px solid grey;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  h3 {
+    font-size: 2rem;
+  }
 
-    img{
-        width: 100%;
-        height: auto;
-        border-radius: 2px;
-        z-index: -1;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    z-index: -1;
+  }
+
+  .field {
+    display: flex;
+    flex-flow: column wrap;
+
+    width: 80%;
+    margin: 0 auto;
+
+    label {
+      text-align: left;
+      padding: 5px 0px;
     }
+  }
 
-    .field{
-        display: flex;
-        flex-flow: column wrap;
-
-        width: 80%;
-        margin: 0 auto;
-
-        label{
-            text-align: left;
-            padding: 5px 0px;
-        }
+  button {
+    margin: 10px 0px;
+    color: black;
+    border-radius: 10px;
+    background: rgb(85, 255, 85);
+    &:hover {
+      background: darken(rgb(85, 255, 85), 25%);
     }
-
-    button{
-        margin: 10px 0px;
-        border-radius: 10px;
-    }
+  }
 }

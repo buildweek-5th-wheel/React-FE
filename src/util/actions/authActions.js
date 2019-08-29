@@ -22,8 +22,8 @@ export const doRegister = data => dispatch => {
   return AuthRoute()
     .post("/auth/register", data)
     .then(res => {
+      console.log(res);
       dispatch({ type: types.REGISTER_USER_SUCCESS, payload: res.data });
-      localStorage.setItem("token", res.data.token);
     })
     .catch(err => {
       dispatch({ type: types.REGISTER_USER_FAILURE, payload: err });
@@ -33,21 +33,25 @@ export const doRegister = data => dispatch => {
 
 /** GET USER PROFILE */
 export const getUser = id => dispatch => {
+  console.log("Id being passed from profile page UseEffect", id);
   dispatch({ type: types.GET_USER_START });
   return AuthRoute()
     .get(`/users/${id}`)
     .then(res => {
+      console.log(id);
       dispatch({ type: types.GET_USER_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: types.GET_USER_FAILURE, payload: err }));
 };
 
 // EDIT USER PROFILE
-export const editUser = user => dispatch => {
+export const editUser = (user, id) => dispatch => {
+  console.log(id);
   dispatch({ type: types.EDIT_USER_START });
   return AuthRoute()
-    .put(`/users/${user.id}`, user)
+    .put(`/users/${id}`, user)
     .then(res => {
+      console.log(res);
       dispatch({ type: types.EDIT_USER_SUCCESS, payload: user });
     })
     .catch(err => dispatch({ type: types.EDIT_USER_FAILURE, payload: err }));

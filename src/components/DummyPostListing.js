@@ -15,11 +15,11 @@ const DumbPost = props => {
     id: 1,
     bio: "WE ARE REALLY COOL"
   };
-  const booking = {
-    listing_id: 1,
-    startDate: "Jan-08-1999",
-    stopDate: "Jan-12-1999"
-  };
+  // const booking = {
+  //   listing_id: 1,
+  //   startDate: "Jan-08-1999",
+  //   stopDate: "Jan-12-1999"
+  // };
   useEffect(() => {
     AuthRoute()
       .get(`/users/1`)

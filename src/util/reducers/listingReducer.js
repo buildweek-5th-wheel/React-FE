@@ -38,6 +38,7 @@ export default (state = initialState, action) => {
     case types.POST_LIST_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         errors: null,
         isSuccess: true
       };
