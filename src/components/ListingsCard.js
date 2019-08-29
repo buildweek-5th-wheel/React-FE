@@ -6,7 +6,7 @@ import AddBookingForm from "../forms/BookForm";
 const BookingButton = props => (
   <Modal
     trigger={
-      <Button color="green" className="add-booking">
+      <Button color="grey" className="neutral" >
         Book
       </Button>
     }

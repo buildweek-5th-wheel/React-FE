@@ -1,9 +1,12 @@
 .login {
   margin: 5% auto;
-  width: 25%;
+  width: 25rem;
   border: 2px solid grey;
   border-radius: 5px;
   font-size: 1.2rem;
+  @media only screen and (max-width: 500px) {
+    width: 70%
+  }
   h3 {
     font-size: 2rem;
   }
@@ -25,16 +28,6 @@
     label {
       text-align: left;
       padding: 5px 0px;
-    }
-  }
-
-  button {
-    margin: 10px 0px;
-    color: black;
-    border-radius: 10px;
-    background: rgb(85, 255, 85);
-    &:hover {
-      background: darken(rgb(85, 255, 85), 25%);
     }
   }
 }

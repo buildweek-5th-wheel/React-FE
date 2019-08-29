@@ -1,8 +1,8 @@
-//delete buttons NEGATIVE               <Button color='red'>Red</Button>
+//delete buttons NEGATIVE               <Button className="negative" color='red'>Red</Button>
 
-//edit, book buttons aka NEUTRAL          <Button color='grey'>Grey</Button>
+//edit, book buttons aka NEUTRAL          <Button className="neutral" color='grey'>Grey</Button>
 
-//submit, add POSITIVE               <Button color='green'>Green</Button>
+//submit, add POSITIVE               <Button className="positive" color='green'>Green</Button>
 .addListing {
   button {
     margin: 10px;

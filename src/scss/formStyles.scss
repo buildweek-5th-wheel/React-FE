@@ -1,10 +1,15 @@
 form {
+    .signup{
+    width:40rem;
+}
     input{
         border-radius: 3px;
         padding: 5px;
+        width: 80%;
     }
 
     .error{
         color: red;
+        text-align: center;
     }
 }

@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
 import { editUser } from "../util/actions/authActions";
+import { Button } from "semantic-ui-react";
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -22,10 +23,15 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
 
         <div>
           <p>User Name</p>
+
+          <Field 
+          style={(errors.username && touched.username) ? { border: "1px solid red" } : null}
+          type="username" 
+          name="username" 
+          placeholder="username" />
           {touched.username && errors.username && (
             <p className="error">{errors.username}</p>
           )}
-          <Field type="username" name="username" placeholder="username" />
         </div>
         {/* <div>
           <p>Password</p>
@@ -46,9 +52,9 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
           />
         </div>
 
-        <button type="submit" disabled={isSubmitting}>
+        <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
           Save Changes
-        </button>
+        </Button>
       </div>
     </Form>
   );

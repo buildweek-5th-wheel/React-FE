@@ -16,7 +16,7 @@ import { getUser } from "../util/actions/authActions";
 const AddListingButtonModal = props => (
   <Modal
     trigger={
-      <Button color="green" className="add">
+      <Button color="green" className="positive" >
         Add
       </Button>
     }

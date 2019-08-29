@@ -5,6 +5,7 @@ import "../../src/scss/formStyles.scss";
 import "../../src/scss/addListing.scss";
 import { connect } from "react-redux";
 import { postListing } from "../util/actions/listingActions";
+import { Button } from "semantic-ui-react";
 
 function AddListingForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -14,39 +15,41 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
       <div className="inputs">
         <div>
           <p>Image Url</p>
-          {touched.image_url && errors.image_url && (
-            <p className="error">{errors.image_url}</p>
-          )}
-          <Field type="url" name="image_url" placeholder="Image Url" />
+          <Field
+          type="url" 
+          name="image_url" 
+          placeholder="Image Url" />
         </div>
 
         <div>
           <p>Listing Name</p>
-          {touched.listing_name && errors.listing_name && (
-            <p>{errors.listingName}</p>
-          )}
           <Field
+            style={(errors.listing_name && touched.listing_name) ? { border: "1px solid red" } : null}
             type="username"
             name="listing_name"
             placeholder="Listing Name"
           />
+          {touched.listing_name && errors.listing_name && (
+            <p className="error">{errors.listing_name}</p>
+          )}
         </div>
 
         <div>
           <p>Description</p>
-          {touched.description && errors.description && (
-            <p>{errors.description}</p>
-          )}
           <Field
+            style={(errors.description && touched.description) ? { border: "1px solid red" } : null}
             component="textarea"
             name="description"
             placeholder="description"
           />
+          {touched.description && errors.description && (
+            <p className="error">{errors.description}</p>
+          )}
         </div>
       </div>
-      <button className="addListingModal" type="submit" disabled={isSubmitting}>
+      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
         Add
-      </button>
+      </Button>
     </Form>
   );
 }

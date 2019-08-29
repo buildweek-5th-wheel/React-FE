@@ -7,6 +7,7 @@ import "../../src/scss/signUp.scss";
 import SignUpImg from "../images/gooseNeckVine.jpg";
 import { connect } from "react-redux";
 import { doRegister } from "../util/actions/authActions";
+import { Button } from "semantic-ui-react";
 
 function SignUpForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -15,14 +16,23 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
       <div>
         <h3>Sign Up!</h3>
         <p>User Name</p>
-        {touched.username && errors.username && <p>{errors.username}</p>}
-        <Field type="username" name="username" placeholder="username" />
+        <Field
+          style={(errors.username && touched.username) ? { border: "1px solid red" } : null} 
+          type="username" 
+          name="username" 
+          placeholder="username" />
+          {touched.username && errors.username && <p className="error">{errors.username}</p>}
       </div>
 
       <div>
         <p>Password</p>
-        {touched.password && errors.password && <p>{errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
+        
+        <Field
+          style={(errors.password && touched.password) ? { border: "1px solid red" } : null} 
+          type="password" 
+          name="password" 
+          placeholder="Password" />
+        {touched.password && errors.password && <p className="error">{errors.password}</p>}
       </div>
 
       <div className="checkbox">
@@ -33,9 +43,9 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
         </label>
       </div>
 
-      <button type="submit" disabled={isSubmitting}>
+      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
         Submit
-      </button>
+      </Button>
       <Link to="/login">Already signed up? Click here to login</Link>
     </Form>
   );
