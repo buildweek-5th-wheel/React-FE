@@ -1,0 +1,23 @@
+.land-list-booking{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 1rem;
+    justify-content: space-around;
+
+    .ui.card{
+        border: 1px solid black;
+        box-shadow: 2px 2px 10px 2px black;
+
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+    .ui.card:first-child {
+        margin-top: 1rem;
+    }
+
+    .ui.card:last-child {
+        margin-top: 1rem;
+    }
+}

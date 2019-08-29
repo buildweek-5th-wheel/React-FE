@@ -1,6 +1,7 @@
 import "../scss/Listings.scss";
 import React, { useEffect, useState } from "react";
 import { Card, Button, Header, Image, Modal } from 'semantic-ui-react'
+import "../scss/Bookings.scss";
 
 /* startDate, endDate, listing_name */
 const BookingsCard = props => {
@@ -23,6 +24,8 @@ const BookingsCard = props => {
     </Card>
   );
   };
+
+//Sort bookings by date?
 
 export default function BookingsComponent() {
     const data = [{"listing_id": 1, startDate: "Jan-01-2019", endDate: "Jan-11-2019", "listing_name": "Chicken Tacos"}, {"listing_id": 2, startDate: "Jan-01-2019", endDate: "Jan-11-2019", "listing_name": "Chicken Tacos"}, {"listing_id": 3, startDate: "Jan-01-2019", endDate: "Jan-11-2019", "listing_name": "Chicken Tacos"}];
