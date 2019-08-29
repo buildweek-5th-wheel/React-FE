@@ -46,7 +46,7 @@ const UserAccountComponent = props => {
           <p>{user.username}</p>
           <h4>Bio</h4>
           <p>{user.bio}</p>
-          <EditButtonModal user={user} />
+          <EditButtonModal className="neutral" color="grey" user={user} />
         </Card.Description>
       </Card.Content>
     </Card>

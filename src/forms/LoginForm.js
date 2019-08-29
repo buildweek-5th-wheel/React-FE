@@ -6,6 +6,7 @@ import { doSignIn } from "../util/actions/authActions";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/login.scss";
 import headerImg from "../images/headerImg.jpg";
+import { Button } from "semantic-ui-react";
 
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -14,26 +15,30 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
       <h3>Please Log In</h3>
       <div className="username field">
         <label>Username</label>
+        <Field
+          style={(errors.username && touched.username) ? { border: "1px solid red" } : null} 
+          type="username" 
+          name="username" 
+          placeholder="Username" />
         {touched.username && errors.username && (
           <p className="error">{errors.username}</p>
         )}
-        <Field type="username" name="username" placeholder="Username" />
       </div>
       <div className="password field">
         <label>Password</label>
-        {touched.password && errors.password && (
-          <p className="error">{errors.password}</p>
-        )}
         <Field
-          style={errors.password ? { border: "1px solid red" } : null}
+          style={(errors.password && touched.password) ? { border: "1px solid red" } : null}
           type="password"
           name="password"
           placeholder="Password"
         />
+        {touched.password && errors.password && (
+          <p className="error">{errors.password}</p>
+        )}
       </div>
-      <button type="submit" disabled={isSubmitting}>
+      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
         Submit
-      </button>
+      </Button>
     </Form>
   );
 }

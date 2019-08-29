@@ -12,7 +12,7 @@ const EditButtonModal = ({ listing }) => {
   return (
     <Modal
       trigger={
-        <Button color="grey" className="edit">
+        <Button color="grey" className="neutral">
           Edit
         </Button>
       }
