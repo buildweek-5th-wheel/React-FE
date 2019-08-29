@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/addListing.scss";
+import { Button } from "semantic-ui-react";
 
 function AddBookingForm({ values, errors, touched, isSubmitting, setFieldValue,
   setFieldTouched, handleSubmit }) {
@@ -24,7 +25,7 @@ function AddBookingForm({ values, errors, touched, isSubmitting, setFieldValue,
           <Field type="date" name="checkout" placeholder="checkout" />
         </div>
       </div>
-      <button className="addListingModal" type="submit" disabled={isSubmitting}>Add</button>
+      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>Add</Button>
     </Form>
   );
 }

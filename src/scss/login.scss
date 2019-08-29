@@ -27,14 +27,4 @@
       padding: 5px 0px;
     }
   }
-
-  button {
-    margin: 10px 0px;
-    color: black;
-    border-radius: 10px;
-    background: rgb(85, 255, 85);
-    &:hover {
-      background: darken(rgb(85, 255, 85), 25%);
-    }
-  }
 }

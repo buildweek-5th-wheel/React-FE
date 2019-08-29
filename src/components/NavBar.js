@@ -22,8 +22,8 @@ const Navbar = props => {
     <>
       {props.isAuth && token ? (
         <Menu>
-          <Image src={NavImg} />
-          <div className="items">
+          <Image classname="navimage"src={NavImg} />
+          
             <Menu.Item
               name="My Listings"
               active={active.activeItem === "My Listings"}
@@ -61,12 +61,12 @@ const Navbar = props => {
               as={Nav}
               to={`/listing`}
             />
-          </div>
+          
         </Menu>
       ) : (
         <Menu>
           <Image src={NavImg} />
-          <div className="items">
+          
             <Menu.Item
               name="Marketplace"
               active={active.activeItem === "Marketplace"}
@@ -88,7 +88,7 @@ const Navbar = props => {
               as={Nav}
               to={`/register`}
             />
-          </div>
+          
         </Menu>
       )}
     </>

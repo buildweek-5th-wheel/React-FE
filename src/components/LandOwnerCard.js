@@ -9,7 +9,7 @@ const OwnerCard = props => {
   const EditButtonModal = ({ listing }) => (
     <Modal
       trigger={
-        <Button color="grey" className="edit">
+        <Button color="grey" className="neutral" >
           Edit
         </Button>
       }
@@ -34,7 +34,7 @@ const OwnerCard = props => {
       <Card.Content extra>
         {/* <button className="LandCard-Edit-Button">Edit (testing)</button> */}
         <EditButtonModal listing={props.owner} />
-        <Button color="red" className="delete" negative>
+        <Button color="red" className="negative">
           Delete
         </Button>
       </Card.Content>

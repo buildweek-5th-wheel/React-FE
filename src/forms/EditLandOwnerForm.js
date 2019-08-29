@@ -1,6 +1,7 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { Button } from "semantic-ui-react";
 
 function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -36,9 +37,9 @@ function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
         />
       </div>
 
-      <button type="submit" disabled={isSubmitting}>
+      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
         Save Changes
-      </button>
+      </Button>
     </Form>
   );
 }

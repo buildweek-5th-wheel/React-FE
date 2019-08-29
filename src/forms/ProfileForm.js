@@ -3,6 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { connect } from "react-redux";
 import { editUser } from "../util/actions/authActions";
+import { Button } from "semantic-ui-react";
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -46,9 +47,9 @@ function UserAccountForm({ values, errors, touched, isSubmitting }) {
           />
         </div>
 
-        <button type="submit" disabled={isSubmitting}>
+        <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
           Save Changes
-        </button>
+        </Button>
       </div>
     </Form>
   );

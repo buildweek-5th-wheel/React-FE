@@ -7,6 +7,7 @@ import "../../src/scss/signUp.scss";
 import SignUpImg from "../images/gooseNeckVine.jpg";
 import { connect } from "react-redux";
 import { doRegister } from "../util/actions/authActions";
+import { Button } from "semantic-ui-react";
 
 function SignUpForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -33,9 +34,9 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
         </label>
       </div>
 
-      <button type="submit" disabled={isSubmitting}>
+      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
         Submit
-      </button>
+      </Button>
       <Link to="/login">Already signed up? Click here to login</Link>
     </Form>
   );
