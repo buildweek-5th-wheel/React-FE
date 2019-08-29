@@ -1,52 +1,61 @@
-// Helper styles for demo
-
-
 import React from "react";
-import { render } from "react-dom";
-import { Formik } from "formik";
+import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import DatePicker from "./DatePicker";
-import "react-datepicker/dist/react-datepicker.css";
+import "../../src/scss/formStyles.scss";
+import "../../src/scss/addListing.scss";
 
-const DatePick = () => (
-  <div className="DatePick">
-    <Formik
-      initialValues={{ date: "" }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 500);
-      }}
-    >
-      {props => {
-        const {
-          values,
-          touched,
-          errors,
-          dirty,
-          isSubmitting,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          handleReset,
-          setFieldValue
-        } = props;
-        return (
-          <form onSubmit={handleSubmit}>
-            <DatePicker
-              name="date"
-              value={values.date}
-              onChange={setFieldValue}
-            />
-            
+function AddBookingForm({ values, errors, touched, isSubmitting }) {
+  return (
+    <Form className="addListing">
+      <img src={values.imgUrl} alt=""/>
 
+      <div className="inputs">
+        <div>
+          {/* <p>Image Url</p>
+          {touched.imgUrl && errors.imgUrl && <p className="error">{errors.imgUrl}</p>}
+          <Field type="url" name="imgUrl" placeholder="Image Url" /> */}
+        </div>
+
+        <div>
+          <p>Booking Name</p>
+          {touched.listingName && errors.listingName && <p>{errors.listingName}</p>}
+          <Field type="username" name="listingName" placeholder="Listing Name" />
+        </div>
+
+        <div>
+          <p>Dates</p>
           
-          </form>
-        );
-      }}
-    </Formik>
-  </div>
-);
+          {touched.description && errors.description && <p>{errors.description}</p>}
+          <Field component="textarea" name="description" placeholder="description" />
+        </div>
+      </div>
+      <button className="addListingModal" type="submit" disabled={isSubmitting}>Add</button>
+    </Form>
+  );
+}
 
-render(<App />, document.getElementById("root"));
+const AddBookingComponent = withFormik({
+  mapPropsToValues({ imgUrl, listingName, description }) {
+    return {
+      listingName: listingName || "",
+      imgUrl: imgUrl || "",
+      description: description || ""
+    };
+  },
+  validationSchema: Yup.object().shape({
+    listingName: Yup.string()
+      .min(4, "Listing must be 6 characters or longer")
+      .required("Listing is required"),
+      description: Yup.string()
+      .min(16, "Description must be 16 characters or longer")
+      .required("Description is required")
+  }),
+
+  handleSubmit(values) {
+    console.log("Add Listing form submission with values", values);
+
+  }
+
+})(AddBookingForm);
+
+export default AddBookingComponent;

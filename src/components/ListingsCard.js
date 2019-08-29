@@ -1,8 +1,16 @@
 import React from "react";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Modal, Button} from 'semantic-ui-react'
 import "../scss/Listings.scss";
-// import logo-nav-white from "..\images\logo-nav-white.png";
+import AddBookingForm from "../forms/BookForm";
 
+// import logo-nav-white from "..\images\logo-nav-white.png";
+const AddListingButtonModal = (props) => (
+  <Modal trigger={<Button className="add">Book</Button>}>
+    <Modal.Header>Add a Listing</Modal.Header>
+      <AddBookingForm />
+     
+  </Modal>
+)
 //All Land Listings
 const LandCard = props => {
   return (
@@ -19,7 +27,8 @@ const LandCard = props => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <button className="LandCard-Edit-Button">Book</button>
+      {AddListingButtonModal()}
+        
       </Card.Content>
     </Card>
   );
