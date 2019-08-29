@@ -7,16 +7,7 @@ const signOut = e => {
 };
 
 const Header = props => {
-  return (
-    <div>
-      {// check if user is logged in
-      !localStorage.getItem("token") ? (
-        <LogoutHeader signOut={signOut} />
-      ) : (
-        <LoginHeader />
-      )}
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Header;

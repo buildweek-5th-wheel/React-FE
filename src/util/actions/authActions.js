@@ -22,8 +22,8 @@ export const doRegister = data => dispatch => {
   return AuthRoute()
     .post("/auth/register", data)
     .then(res => {
+      console.log(res);
       dispatch({ type: types.REGISTER_USER_SUCCESS, payload: res.data });
-      localStorage.setItem("token", res.data.token);
     })
     .catch(err => {
       dispatch({ type: types.REGISTER_USER_FAILURE, payload: err });

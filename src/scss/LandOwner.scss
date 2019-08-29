@@ -1,73 +1,82 @@
-button.ui.add.button{
+button.ui.add.button {
   margin: 1% 0% 3% 0%;
   background: rgb(85, 255, 85);
+
+  &:hover {
+    background: darken(rgb(85, 255, 85), 20%);
+  }
 }
 
-div.ui.modal.transition.visible.active{
-  img{
+button.ui.button.edit {
+  background: rgb(105, 206, 240);
+  color: white;
+
+  &:hover {
+    background: darken(rgb(105, 206, 240), 10%);
+  }
+}
+
+div.ui.modal.transition.visible.active {
+  img {
     width: 100%;
     border-radius: 10px;
   }
 
-  .description{
+  .description {
     width: 75%;
     margin: 0 auto;
 
-    .addListing{
+    .addListing {
       width: 100%;
       margin: 0 auto;
 
-      .inputs{
+      .inputs {
         margin: 0 auto;
         width: 100%;
         display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
 
-        p{
+        p {
           font-size: 1.5rem;
         }
 
-        div{
+        div {
           width: 45%;
         }
       }
-      
-      button.addListingModal{
-        background: #2E6A8F;
+
+      button.addListingModal {
+        background: #2e6a8f;
         padding: 1% 2%;
         color: white;
       }
     }
   }
 
-
-
-
-  textarea{
+  textarea {
     border-radius: 5px;
   }
 }
-.land-list-owner{
+.land-list-owner {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  
-  div.ui{
-    width:38%;
+
+  div.ui {
+    width: 38%;
     border: 2px solid black;
-    margin: 20px;  
+    margin: 20px;
     margin-top: 0;
     margin-bottom: 5rem;
     color: blue;
-    height:auto;
-    background:#E5E5E5;
+    height: auto;
+    background: #e5e5e5;
     box-shadow: 5px 1px 20px #111;
     font-size: 1.1rem;
     &:hover {
       transform: scale(1.05);
-    } 
-    
+    }
   }
 
   //Last card
@@ -79,13 +88,11 @@ div.ui.modal.transition.visible.active{
   .ui.card:first-child {
     margin-top: 0;
   }
-
 }
-.LandCard-Edit-Button{
+.LandCard-Edit-Button {
   height: 2rem;
   border-radius: 5px;
   &:hover {
     transform: scale(1.05);
-  
-  } 
+  }
 }

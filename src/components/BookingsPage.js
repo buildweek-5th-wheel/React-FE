@@ -1,6 +1,6 @@
 import "../scss/Listings.scss";
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 import "../scss/Bookings.scss";
 
 /* startDate, endDate, listing_name */
@@ -17,7 +17,7 @@ const BookingsCard = props => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        {/* <button className="LandCard-Edit-Button">Edit (testing)</button> */}
+        <Button negative>Delete</Button>
       </Card.Content>
     </Card>
   );

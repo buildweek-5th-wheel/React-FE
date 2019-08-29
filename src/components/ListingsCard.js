@@ -3,30 +3,28 @@ import { Card, Image, Modal, Button } from "semantic-ui-react";
 import "../scss/Listings.scss";
 import AddBookingForm from "../forms/BookForm";
 
-import headerImg from "../images/headerImg.jpg";
-const AddListingButtonModal = props => (
+const BookingButton = props => (
   <Modal trigger={<Button className="add-booking">Book</Button>}>
     <Modal.Header>Add a Booking</Modal.Header>
-    <img
-      className="book-img"
-      src={headerImg}
-      alt="A van parked near a sunset"
-    />
+    <img className="book-img" src={props.land.image_url} alt="" />
     <AddBookingForm />
   </Modal>
 );
 //All Land Listings
 const LandCard = props => {
+  console.log(props);
   return (
-    <Card key={props["listing_id"]}>
-      <Image src={props.land["img_url"]} wrapped ui={false} />
+    <Card key={props.land.listing_id}>
+      <Image src={props.land.image_url} wrapped ui={false} />
       <Card.Content>
         <h2>Book today:</h2>
-        <Card.Header>{props.land["listing_name"]}</Card.Header>
+        <Card.Header>{props.land.listing_name}</Card.Header>
         <Card.Meta></Card.Meta>
         <Card.Description>{props.land.description}</Card.Description>
       </Card.Content>
-      <Card.Content extra>{AddListingButtonModal()}</Card.Content>
+      <Card.Content extra>
+        <BookingButton land={props.land} />
+      </Card.Content>
     </Card>
   );
 };

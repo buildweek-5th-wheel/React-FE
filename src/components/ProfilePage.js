@@ -6,7 +6,7 @@ import { getUser } from "../util/actions/authActions";
 import { Button, Image, Modal, Card } from "semantic-ui-react";
 
 const UserAccountComponent = props => {
-  console.log("user id in profile page", props.user.id);
+  console.log("User", props.user);
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -14,12 +14,12 @@ const UserAccountComponent = props => {
     image_url: "",
     id: props.user.id
   });
-
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    if (props.user.id) {
+    if (props.user.id && token) {
       props.getUser(props.user.id);
     }
-  }, [props.user.id]);
+  }, [props.user.id, token]);
 
   useEffect(() => {
     setUser(props.user);

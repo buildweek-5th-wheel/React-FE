@@ -19,7 +19,7 @@ function LandListings(props) {
       <h1 className="Land-List-Parent-h1">Available Land</h1>
 
       <section className="land-list">
-        {data.map(land => (
+        {props.listing.map(land => (
           <ListingsCard key={land.listing_id} land={land} />
         ))}
         {console.log("Data from server", props.listing)}

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Menu, Image } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
-import NavImg from "../images/logo-blue.png"
+import NavImg from "../images/logo-blue.png";
 import "../scss/NavBar.scss";
 
 const Navbar = () => {
   const [active, setActive] = useState({
-    activeItem: "Account Settings"
+    activeItem: "setting"
   });
 
   const Nav = props => <NavLink exact {...props} activeClassName="active" />;
@@ -18,7 +18,7 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
 
   return (
-    <> 
+    <>
       {token ? (
         <Menu>
           <Image src={NavImg} />
@@ -29,6 +29,13 @@ const Navbar = () => {
               onClick={handleClick}
               as={Nav}
               to={`/userListing`}
+            />
+            <Menu.Item
+              name="My Bookings"
+              active={active.activeItem === "My Bookings"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/booking`}
             />
             <Menu.Item
               name="Marketplace"
@@ -45,11 +52,13 @@ const Navbar = () => {
               to={`/profile`}
             />
             <Menu.Item
-              name="Bookings"
-              active={active.activeItem === "Bookings"}
-              onClick={handleClick}
+              name="Logout"
+              active={active.activeItem === "Logout"}
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
               as={Nav}
-              to={`/booking`}
+              to={`/listing`}
             />
           </div>
         </Menu>

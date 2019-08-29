@@ -23,15 +23,6 @@ const App = () => {
     <Router>
       <Navbar />
       <Header />
-      <Link to="/">Homepage </Link>
-      <br />
-      <Link to="/profile">TESTING:User Profile </Link>
-      <br />
-      <Link to="/userListing">TESTING:Land Owner Listings </Link>
-      <br />
-      <Link to="/listing">TESTING: ALL LISTINGS </Link>
-      <br />
-      <Link to="/dumb">DON'T ENTER HERE </Link>
 
       {/* ROUTES */}
       <Switch>
