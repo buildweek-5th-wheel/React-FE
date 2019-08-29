@@ -2,6 +2,7 @@ import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { Button } from "semantic-ui-react";
+import "../scss/EditLandOwnerForm.scss";
 
 function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
   return (
