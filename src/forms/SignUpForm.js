@@ -59,7 +59,6 @@ const SignUpComponent = withFormik({
   }),
 
   handleSubmit(values, formikBag) {
-    console.log("Sign Up form submission with values", values);
     formikBag.props.doRegister(values);
     formikBag.props.history.push("/login");
   }

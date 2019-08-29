@@ -5,6 +5,7 @@ import "../../src/scss/formStyles.scss";
 import "../../src/scss/addListing.scss";
 import { connect } from "react-redux";
 import { postListing } from "../util/actions/listingActions";
+import { getUser } from "../util/actions/authActions";
 
 function AddListingForm({ values, errors, touched, isSubmitting }) {
   return (
@@ -70,14 +71,13 @@ const AddListingComponent = withFormik({
   }),
 
   handleSubmit(values, formikBag) {
-    console.log("Add Listing form submission with values", values);
-    console.log(formikBag);
     formikBag.props.postListing(values);
+    formikBag.props.getUser(values.user_id);
     formikBag.props.history.push("/userListing");
   }
 })(AddListingForm);
 
 export default connect(
   null,
-  { postListing }
+  { postListing, getUser }
 )(AddListingComponent);

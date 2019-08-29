@@ -4,17 +4,22 @@ import * as Yup from "yup";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/addListing.scss";
 
-function AddBookingForm({ values, errors, touched, isSubmitting, setFieldValue,
-  setFieldTouched, handleSubmit }) {
+function AddBookingForm({
+  values,
+  errors,
+  touched,
+  isSubmitting,
+  setFieldValue,
+  setFieldTouched,
+  handleSubmit
+}) {
   return (
     <Form className="addListing">
       <img src={values.imgUrl} alt="" />
 
       <div className="inputs">
-
-
         <div>
-        <p>Check-in</p>
+          <p>Check-in</p>
           {touched.checkin && errors.checkin && <p>{errors.checkin}</p>}
           <Field type="date" name="checkin" placeholder="checkin" />
         </div>
@@ -24,7 +29,9 @@ function AddBookingForm({ values, errors, touched, isSubmitting, setFieldValue,
           <Field type="date" name="checkout" placeholder="checkout" />
         </div>
       </div>
-      <button className="addListingModal" type="submit" disabled={isSubmitting}>Add</button>
+      <button className="addListingModal" type="submit" disabled={isSubmitting}>
+        Add
+      </button>
     </Form>
   );
 }
@@ -37,15 +44,9 @@ const AddBookingComponent = withFormik({
       checkout: checkout || ""
     };
   },
-  validationSchema: Yup.object().shape({
-    
-  }),
+  validationSchema: Yup.object().shape({}),
 
-  handleSubmit(values) {
-    console.log("Add booking form submission with values", values);
-
-  }
-
+  handleSubmit(values) {}
 })(AddBookingForm);
 
 export default AddBookingComponent;

@@ -6,7 +6,6 @@ import { getUser } from "../util/actions/authActions";
 import { Button, Image, Modal, Card } from "semantic-ui-react";
 
 const UserAccountComponent = props => {
-  console.log("User", props.user);
   const [user, setUser] = useState({
     username: "",
     password: "",
