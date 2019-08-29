@@ -24,7 +24,7 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
-        <Field type="password" name="password" placeholder="Password" />
+        <Field style={(errors.password) ? {border: "1px solid red"} : null } type="password" name="password" placeholder="Password" />
       </div>
       <button type="submit" disabled={isSubmitting}>
         Submit
