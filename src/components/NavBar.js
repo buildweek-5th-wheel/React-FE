@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Image } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
+import NavImg from "../images/logo-blue.png"
+import "../scss/NavBar.scss";
 
 const Navbar = () => {
   const [active, setActive] = useState({
@@ -19,58 +21,64 @@ const Navbar = () => {
     <> 
       {token ? (
         <Menu>
-          <Menu.Item
-            name="My Listings"
-            active={active.activeItem === "My Listings"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/userListing`}
-          />
-          <Menu.Item
-            name="Marketplace"
-            active={active.activeItem === "Marketplace"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/listing`}
-          />
-          <Menu.Item
-            name="Profile"
-            active={active.activeItem === "Profile"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/profile`}
-          />
-          <Menu.Item
-            name="Bookings"
-            active={active.activeItem === "Bookings"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/booking`}
-          />
+          <Image src={NavImg} />
+          <div className="items">
+            <Menu.Item
+              name="My Listings"
+              active={active.activeItem === "My Listings"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/userListing`}
+            />
+            <Menu.Item
+              name="Marketplace"
+              active={active.activeItem === "Marketplace"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/listing`}
+            />
+            <Menu.Item
+              name="Profile"
+              active={active.activeItem === "Profile"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/profile`}
+            />
+            <Menu.Item
+              name="Bookings"
+              active={active.activeItem === "Bookings"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/booking`}
+            />
+          </div>
         </Menu>
       ) : (
         <Menu>
-          <Menu.Item
-            name="Marketplace"
-            active={active.activeItem === "Marketplace"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/listing`}
-          />
-          <Menu.Item
-            name="Login"
-            active={active.activeItem === "login"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/login`}
-          />
-          <Menu.Item
-            name="Register"
-            active={active.activeItem === "register"}
-            onClick={handleClick}
-            as={Nav}
-            to={`/register`}
-          />
+          <Image src={NavImg} />
+          <div className="items">
+            <Menu.Item
+              name="Marketplace"
+              active={active.activeItem === "Marketplace"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/listing`}
+            />
+            <Menu.Item
+              name="Login"
+              active={active.activeItem === "login"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/login`}
+            />
+            <Menu.Item
+              name="Register"
+              active={active.activeItem === "register"}
+              onClick={handleClick}
+              as={Nav}
+              to={`/register`}
+            />
+          </div>
         </Menu>
       )}
     </>
