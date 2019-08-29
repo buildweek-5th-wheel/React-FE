@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/signUp.scss";
 import SignUpImg from "../images/gooseNeckVine.jpg";
+import { connect } from "react-redux";
+import { doRegister } from "../util/actions/authActions";
 
 function SignUpForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="signUp">
-      <img src={SignUpImg} alt="A truck with beautiful fields"/>
+      <img src={SignUpImg} alt="A truck with beautiful fields" />
       <div>
         <h3>Sign Up!</h3>
         <p>User Name</p>
@@ -31,7 +33,9 @@ function SignUpForm({ values, errors, touched, isSubmitting }) {
         </label>
       </div>
 
-      <button type="submit" disabled={isSubmitting}>Submit</button>
+      <button type="submit" disabled={isSubmitting}>
+        Submit
+      </button>
       <Link to="/login">Already signed up? Click here to login</Link>
     </Form>
   );
@@ -47,18 +51,21 @@ const SignUpComponent = withFormik({
   },
   validationSchema: Yup.object().shape({
     username: Yup.string()
-      .min(6, "Username must be 6 characters or longer")
+      .min(5, "Username must be 6 characters or longer")
       .required("Username is required"),
     password: Yup.string()
-      .min(16, "Password must be 16 characters or longer")
+      .min(5, "Password must be 5 characters or longer")
       .required("Password is required")
   }),
 
-  handleSubmit(values, { resetForm, setErrors, setSubmitting }) {
+  handleSubmit(values, formikBag) {
     console.log("Sign Up form submission with values", values);
-
+    formikBag.props.doRegister(values);
+    formikBag.props.history.push("/profile");
   }
-
 })(SignUpForm);
 
-export default SignUpComponent;
+export default connect(
+  null,
+  { doRegister }
+)(SignUpComponent);

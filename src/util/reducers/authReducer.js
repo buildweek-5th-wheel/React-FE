@@ -4,9 +4,11 @@ const initialState = {
   token: "",
   user: {
     username: "",
-  password: "",
-  bio: "",
-  image_url: ""},
+    password: "",
+    bio: "",
+    image_url: "",
+    bookings: []
+  },
   isAuth: false,
   isLoading: false,
   errors: null,
@@ -29,7 +31,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         token: payload.token,
-        user: payload.id,
+        user: { ...state.user, id: payload.id },
         isAuth: true,
         isLoading: false,
         isSuccess: true
@@ -57,7 +59,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         errors: null,
         isAuth: false,
-        user: {},
+        user: { ...state.user, id: payload.id },
         isSuccess: true
       };
     case types.REGISTER_USER_FAIL:
@@ -106,7 +108,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        user: payload,
+        user: {
+          ...state.user,
+          username: payload.username,
+          password: payload.password,
+          bio: payload.bio,
+          image_url: payload.image_url
+        },
         isSuccess: true
       };
     case types.EDIT_USER_FAILURE:

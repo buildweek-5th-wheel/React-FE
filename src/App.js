@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import Header from "./pages/header";
 import SignupComponent from "./forms/SignUpForm";
-import Homepage from "./pages/homepage";
+//import Homepage from "./pages/homepage";
 import Navbar from "./components/NavBar";
-import PrivateRoute from "./util/PrivateRoute";
+//import PrivateRoute from "./util/PrivateRoute";
 import Login from "./forms/LoginForm";
 import Profile from "./components/ProfilePage";
 import ListingsPage from "./components/ListingsPage";
@@ -23,7 +23,7 @@ const App = () => {
     <Router>
       <Navbar />
       <Header />
-      {/* <Link to="/">Homepage </Link>
+      <Link to="/">Homepage </Link>
       <br />
       <Link to="/profile">TESTING:User Profile </Link>
       <br />
@@ -31,7 +31,7 @@ const App = () => {
       <br />
       <Link to="/listing">TESTING: ALL LISTINGS </Link>
       <br />
-      <Link to="/dumb">DON'T ENTER HERE </Link> */}
+      <Link to="/dumb">DON'T ENTER HERE </Link>
 
       {/* ROUTES */}
       <Switch>

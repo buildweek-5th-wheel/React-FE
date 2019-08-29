@@ -10,7 +10,7 @@ import headerImg from "../images/headerImg.jpg";
 function LoginForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="login">
-      <img src={headerImg} alt="A van parked near a sunset"/>
+      <img src={headerImg} alt="A van parked near a sunset" />
       <h3>Please Log In</h3>
       <div className="username field">
         <label>Username</label>
@@ -24,7 +24,12 @@ function LoginForm({ values, errors, touched, isSubmitting }) {
         {touched.password && errors.password && (
           <p className="error">{errors.password}</p>
         )}
-        <Field style={(errors.password) ? {border: "1px solid red"} : null } type="password" name="password" placeholder="Password" />
+        <Field
+          style={errors.password ? { border: "1px solid red" } : null}
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
       </div>
       <button type="submit" disabled={isSubmitting}>
         Submit
@@ -52,7 +57,7 @@ const LoginComponent = withFormik({
   handleSubmit(values, formikBag) {
     console.log("Login form submission with values", values);
     formikBag.props.doSignIn(values);
-    //formikBag.props.history.push("/");
+    formikBag.props.history.push("/profile");
   }
 })(LoginForm);
 
