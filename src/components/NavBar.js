@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Menu } from "semantic-ui-react";
+import { Menu, Image } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
+import NavImg from "../images/logo-blue.png"
 
 const Navbar = () => {
   const [active, setActive] = useState({
@@ -19,6 +20,7 @@ const Navbar = () => {
     <> 
       {token ? (
         <Menu>
+          <img src={NavImg} />
           <Menu.Item
             name="My Listings"
             active={active.activeItem === "My Listings"}
@@ -50,6 +52,7 @@ const Navbar = () => {
         </Menu>
       ) : (
         <Menu>
+          <img src={NavImg} />
           <Menu.Item
             name="Marketplace"
             active={active.activeItem === "Marketplace"}
