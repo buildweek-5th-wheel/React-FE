@@ -43,7 +43,7 @@ const OwnerCard = props => {
         <EditButtonModal listing={props.owner} />
         <Button
           onClick={() => {
-            props.deleteListing(props.owner.user_id);
+            props.deleteListing(props.owner.listing_id);
             props.getUser(props.owner.user_id);
           }}
           color="red"
