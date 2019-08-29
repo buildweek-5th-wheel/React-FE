@@ -5,9 +5,6 @@ import { connect } from "react-redux";
 import { getUser } from "../util/actions/authActions";
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
-
-
-
 const UserAccountComponent = props => {
   const [user, setUser] = useState({
     username: "",
@@ -39,13 +36,11 @@ console.log(user)
   )
 
   return (
-    <div className="userAccount">
+    <div className="userAccount default">
       <img src={user.img_url} />
       <h1>User Profile</h1>
       <h4>User Name</h4>
       <p>{user.username}</p>
-      <h4>Password</h4>
-      <p>NA</p>
       <h4>Bio</h4>
       <p>{user.bio}</p>
       <EditButtonModal user={user}/>

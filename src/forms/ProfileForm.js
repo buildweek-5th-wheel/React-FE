@@ -5,37 +5,42 @@ import * as Yup from "yup";
 
 function UserAccountForm({ values, errors, touched, isSubmitting }) {
   return (
-    <Form className="userAccount">
-      <img src={values.imgUrl} alt=""/>
+    <Form className="userAccount form">
+      <div className="image">
+        <img src={values.imgUrl} alt=""/>
+      </div>
+      
+      <div className="inputs">
+        <div>
+          <p>Image Url</p>
+          {touched.imgUrl && errors.imgUrl && <p className="error">{errors.imgUrl}</p>}
+          <Field type="text" name="imgUrl" placeholder="Image Url" />
+        </div>
 
-      <div>
-        <p>Image Url</p>
-        {touched.imgUrl && errors.imgUrl && <p className="error">{errors.imgUrl}</p>}
-        <Field type="text" name="imgUrl" placeholder="Image Url" />
+        <div>
+          <p>User Name</p>
+          {touched.username && errors.username && (
+            <p className="error">{errors.username}</p>
+          )}
+          <Field type="username" name="username" placeholder="username" />
+        </div>
+        <div>
+          <p>Password</p>
+          {touched.password && errors.password && (
+            <p className="error">{errors.password}</p>
+          )}
+          <Field type="password" name="password" placeholder="Password" />
+        </div>
+
+        <div>
+          <p>Bio</p>
+          {touched.bio && errors.bio && <p className="error">{errors.bio}</p>}
+          <Field component={"textarea"} type="textarea" name="bio" placeholder="bio"/>
+        </div>
+
+        <button type='submit' disabled={isSubmitting}>Save Changes</button>
       </div>
 
-      <div>
-        <p>User Name</p>
-        {touched.username && errors.username && (
-          <p className="error">{errors.username}</p>
-        )}
-        <Field type="username" name="username" placeholder="username" />
-      </div>
-      <div>
-        <p>Password</p>
-        {touched.password && errors.password && (
-          <p className="error">{errors.password}</p>
-        )}
-        <Field type="password" name="password" placeholder="Password" />
-      </div>
-
-      <div>
-        <p>Bio</p>
-        {touched.bio && errors.bio && <p className="error">{errors.bio}</p>}
-        <Field component={"textarea"} type="textarea" name="bio" placeholder="bio"/>
-      </div>
-
-      <button type='submit' disabled={isSubmitting}>Save Changes</button>
     </Form>
   );
 }
