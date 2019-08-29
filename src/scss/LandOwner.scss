@@ -38,6 +38,7 @@ div.ui.modal.transition.visible.active {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  margin: 3% 0%;
 
   div.ui {
     width: 38%;
@@ -66,3 +67,11 @@ div.ui.modal.transition.visible.active {
   }
 }
 
+.owner-list-parent{
+  h1{
+    margin-bottom: 3rem;
+    color: black;
+    font-size:3rem;
+  
+  }
+}

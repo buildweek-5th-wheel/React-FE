@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { updateListing } from "../util/actions/listingActions";
 import { getUser } from "../util/actions/authActions";
 import { Button } from "semantic-ui-react";
+import "../scss/EditLandOwnerForm.scss";
 
 function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
   return (
