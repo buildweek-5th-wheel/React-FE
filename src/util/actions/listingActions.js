@@ -19,6 +19,7 @@ export const postListing = lists => dispatch => {
   return AuthRoute()
     .post("/listings", lists)
     .then(res => {
+      console.log(res);
       dispatch({ type: types.POST_LIST_SUCCESS, payload: lists });
     })
     .catch(err => {

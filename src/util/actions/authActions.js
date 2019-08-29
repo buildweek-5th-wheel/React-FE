@@ -38,6 +38,7 @@ export const getUser = id => dispatch => {
   return AuthRoute()
     .get(`/users/${id}`)
     .then(res => {
+      console.log(id);
       dispatch({ type: types.GET_USER_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: types.GET_USER_FAILURE, payload: err }));

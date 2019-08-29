@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, Image } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import NavImg from "../images/logo-blue.png";
 import "../scss/NavBar.scss";
+import { connect } from "react-redux";
 
-const Navbar = () => {
+const Navbar = props => {
   const [active, setActive] = useState({
     activeItem: "setting"
   });
@@ -19,7 +20,7 @@ const Navbar = () => {
 
   return (
     <>
-      {token ? (
+      {props.isAuth && token ? (
         <Menu>
           <Image src={NavImg} />
           <div className="items">
@@ -94,4 +95,8 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapsStateToProps = state => ({
+  isAuth: state.authReducer.isAuth
+});
+
+export default connect(mapsStateToProps)(Navbar);

@@ -4,7 +4,13 @@ import "../scss/Listings.scss";
 import AddBookingForm from "../forms/BookForm";
 
 const BookingButton = props => (
-  <Modal trigger={<Button className="add-booking">Book</Button>}>
+  <Modal
+    trigger={
+      <Button color="green" className="add-booking">
+        Book
+      </Button>
+    }
+  >
     <Modal.Header>Add a Booking</Modal.Header>
     <img className="book-img" src={props.land.image_url} alt="" />
     <AddBookingForm />

@@ -7,7 +7,7 @@ import Header from "./pages/header";
 import SignupComponent from "./forms/SignUpForm";
 //import Homepage from "./pages/homepage";
 import Navbar from "./components/NavBar";
-//import PrivateRoute from "./util/PrivateRoute";
+import PrivateRoute from "./util/PrivateRoute";
 import Login from "./forms/LoginForm";
 import Profile from "./components/ProfilePage";
 import ListingsPage from "./components/ListingsPage";
@@ -30,11 +30,11 @@ const App = () => {
         <Route exact path="/" component={ListingsPage} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={SignupComponent} />
-        <Route path="/userListing" component={OwnerListing} />
-        <Route path="/booking" component={BookingsPage} />
+        <PrivateRoute path="/userListing" component={OwnerListing} />
+        <PrivateRoute path="/booking" component={BookingsPage} />
         {/** PLACE A PRIVATE ROUTE AFTER */}
-        <Route path="/profile" component={Profile} />
-        <Route path="/listing" component={ListingsPage} />
+        <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/listing" component={ListingsPage} />
       </Switch>
       <Footer />
     </Router>

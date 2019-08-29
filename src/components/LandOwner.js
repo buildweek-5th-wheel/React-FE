@@ -11,11 +11,18 @@ import {
   updateListing,
   deleteListing
 } from "../util/actions/listingActions";
+import { getUser } from "../util/actions/authActions";
 
 const AddListingButtonModal = props => (
-  <Modal trigger={<Button className="add">Add</Button>}>
+  <Modal
+    trigger={
+      <Button color="green" className="add">
+        Add
+      </Button>
+    }
+  >
     <Modal.Header>Add a Listing</Modal.Header>
-    <AddListingForm />
+    <AddListingForm user={props.user} history={props.history} />
   </Modal>
 );
 const dumbListing = {
@@ -27,12 +34,22 @@ const dumbListing = {
 };
 
 const OwnerListings = props => {
-  const [OwnerList] = useState(data);
+  const [listings, setListings] = useState([]);
 
+  // const token = localStorage.getItem("token");
+  // useEffect(() => {
+  //   if (props.user.id && token) {
+  //     props.getUser(props.user.id);
+  //   }
+  // }, [props.user, token]);
+
+  useEffect(() => {
+    setListings(props.user.listings);
+  }, [props.user]);
   return (
     <div className="owner-list-parent">
       <h1>Your land listings:</h1>
-      <AddListingButtonModal />
+      <AddListingButtonModal user={props.user.id} history={props.history} />
       <button
         onClick={() =>
           AuthRoute()
@@ -44,7 +61,7 @@ const OwnerListings = props => {
         Send post data
       </button>
       <section className="land-list-owner">
-        {props.user.listings.map(owner => (
+        {listings.map(owner => (
           <OwnerCard key={owner.listing_id} owner={owner} />
         ))}
       </section>
@@ -58,5 +75,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { postListing, updateListing, deleteListing }
+  { postListing, updateListing, deleteListing, getUser }
 )(OwnerListings);

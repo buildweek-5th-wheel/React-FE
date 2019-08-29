@@ -7,7 +7,13 @@ import EditLandOwnerForm from "../forms/EditLandOwnerForm";
 
 const OwnerCard = props => {
   const EditButtonModal = ({ listing }) => (
-    <Modal trigger={<Button className="edit">Edit</Button>}>
+    <Modal
+      trigger={
+        <Button color="grey" className="edit">
+          Edit
+        </Button>
+      }
+    >
       <Modal.Header>Edit Profile</Modal.Header>
       <EditLandOwnerForm
         enableReinitialize
@@ -28,7 +34,7 @@ const OwnerCard = props => {
       <Card.Content extra>
         {/* <button className="LandCard-Edit-Button">Edit (testing)</button> */}
         <EditButtonModal listing={props.owner} />
-        <Button className="delete" negative>
+        <Button color="red" className="delete" negative>
           Delete
         </Button>
       </Card.Content>

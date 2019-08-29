@@ -7,7 +7,8 @@ const initialState = {
     password: "",
     bio: "",
     image_url: "",
-    bookings: []
+    bookings: [],
+    listings: []
   },
   isAuth: false,
   isLoading: false,

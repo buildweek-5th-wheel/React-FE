@@ -17,7 +17,7 @@ const BookingsCard = props => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button negative>Delete</Button>
+        <Button color="red">Delete</Button>
       </Card.Content>
     </Card>
   );
