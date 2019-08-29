@@ -1,0 +1,11 @@
+.ui.menu{
+    display: flex;
+    justify-content: space-around;
+
+    .items{
+        width: 35%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+    }
+}
