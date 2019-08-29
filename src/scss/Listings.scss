@@ -47,3 +47,14 @@
     color:black;
     }
 }
+.add-booking{
+  background: #828282d2 !important;
+  color: #252525 !important;
+  font-size: 1rem !important;
+  width: 6rem;
+  border-radius:8px !important;
+  &:hover {
+    transform: scale(1.05) !important;
+  } 
+  
+}
