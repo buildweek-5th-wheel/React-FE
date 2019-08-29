@@ -1,10 +1,13 @@
 .userAccount.default{
-    width: 50%;
-    margin: 0 auto;
+    width: 25%;
+    margin: 5% auto;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    border: 1px solid black;
+    box-shadow: 1px 1px 10px 2px black;
+    &:hover{
+        transform: scale(1.05);
+    }
 }
 
 .userAccount.form{

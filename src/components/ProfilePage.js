@@ -3,7 +3,7 @@ import UserAccountForm from "../forms/ProfileForm";
 import "../../src/scss/userAccount.scss";
 import { connect } from "react-redux";
 import { getUser } from "../util/actions/authActions";
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Card } from 'semantic-ui-react'
 
 const UserAccountComponent = props => {
   const [user, setUser] = useState({
@@ -36,15 +36,19 @@ console.log(user)
   )
 
   return (
-    <div className="userAccount default">
-      <img src={user.img_url} />
-      <h1>User Profile</h1>
-      <h4>User Name</h4>
-      <p>{user.username}</p>
-      <h4>Bio</h4>
-      <p>{user.bio}</p>
-      <EditButtonModal user={user}/>
-    </div>
+    <Card className="userAccount default">
+    <Image src={user.img_url} wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>User Profile</Card.Header>
+      <Card.Description>
+        <h4>User Name</h4>
+        <p>{user.username}</p>
+        <h4>Bio</h4>
+        <p>{user.bio}</p>
+        <EditButtonModal user={user}/>
+      </Card.Description>
+    </Card.Content>
+  </Card>
   );
 };
 
