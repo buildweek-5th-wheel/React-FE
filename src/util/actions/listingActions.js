@@ -19,7 +19,6 @@ export const postListing = lists => dispatch => {
   return AuthRoute()
     .post("/listings", lists)
     .then(res => {
-      console.log(res);
       dispatch({ type: types.POST_LIST_SUCCESS, payload: lists });
     })
     .catch(err => {
@@ -31,9 +30,10 @@ export const updateListing = lists => dispatch => {
   dispatch({ type: types.UPDATE_LISTING_START });
   return AuthRoute()
     .put(`/listings/${lists.listing_id}`, lists)
-    .then(res =>
-      dispatch({ type: types.UPDATE_LISTING_SUCCESS, payload: lists })
-    )
+    .then(res => {
+      console.log("Updated listing", res);
+      dispatch({ type: types.UPDATE_LISTING_SUCCESS, payload: lists });
+    })
     .catch(err =>
       dispatch({ type: types.UPDATE_LISTING_FAILURE, payload: err })
     );
@@ -43,12 +43,13 @@ export const deleteListing = id => dispatch => {
   dispatch({ type: types.DELETE_LISTING_START });
   return AuthRoute()
     .delete(`/listings/${id}`)
-    .then(res =>
+    .then(res => {
+      console.log(res);
       dispatch({
         type: types.DELETE_LISTING_SUCCESS,
         payload: id
-      })
-    )
+      });
+    })
     .catch(err =>
       dispatch({ type: types.DELETE_LISTING_FAILURE, payload: err })
     );

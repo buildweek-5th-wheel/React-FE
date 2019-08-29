@@ -36,13 +36,6 @@ const dumbListing = {
 const OwnerListings = props => {
   const [listings, setListings] = useState([]);
 
-  // const token = localStorage.getItem("token");
-  // useEffect(() => {
-  //   if (props.user.id && token) {
-  //     props.getUser(props.user.id);
-  //   }
-  // }, [props.user, token]);
-
   useEffect(() => {
     setListings(props.user.listings);
   }, [props.user]);
@@ -50,16 +43,6 @@ const OwnerListings = props => {
     <div className="owner-list-parent">
       <h1>Your land listings:</h1>
       <AddListingButtonModal user={props.user.id} history={props.history} />
-      <button
-        onClick={() =>
-          AuthRoute()
-            .post(`https://bw-5th-wheel.herokuapp.com/listings`, dumbListing)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-        }
-      >
-        Send post data
-      </button>
       <section className="land-list-owner">
         {listings.map(owner => (
           <OwnerCard key={owner.listing_id} owner={owner} />

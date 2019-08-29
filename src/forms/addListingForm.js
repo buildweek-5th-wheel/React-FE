@@ -5,6 +5,7 @@ import "../../src/scss/formStyles.scss";
 import "../../src/scss/addListing.scss";
 import { connect } from "react-redux";
 import { postListing } from "../util/actions/listingActions";
+import { getUser } from "../util/actions/authActions";
 import { Button } from "semantic-ui-react";
 
 function AddListingForm({ values, errors, touched, isSubmitting }) {
@@ -15,16 +16,17 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
       <div className="inputs">
         <div>
           <p>Image Url</p>
-          <Field
-          type="url" 
-          name="image_url" 
-          placeholder="Image Url" />
+          <Field type="url" name="image_url" placeholder="Image Url" />
         </div>
 
         <div>
           <p>Listing Name</p>
           <Field
-            style={(errors.listing_name && touched.listing_name) ? { border: "1px solid red" } : null}
+            style={
+              errors.listing_name && touched.listing_name
+                ? { border: "1px solid red" }
+                : null
+            }
             type="username"
             name="listing_name"
             placeholder="Listing Name"
@@ -37,7 +39,11 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
         <div>
           <p>Description</p>
           <Field
-            style={(errors.description && touched.description) ? { border: "1px solid red" } : null}
+            style={
+              errors.description && touched.description
+                ? { border: "1px solid red" }
+                : null
+            }
             component="textarea"
             name="description"
             placeholder="description"
@@ -47,7 +53,12 @@ function AddListingForm({ values, errors, touched, isSubmitting }) {
           )}
         </div>
       </div>
-      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
+      <Button
+        className="positive"
+        color="green"
+        type="submit"
+        disabled={isSubmitting}
+      >
         Add
       </Button>
     </Form>
@@ -73,14 +84,13 @@ const AddListingComponent = withFormik({
   }),
 
   handleSubmit(values, formikBag) {
-    console.log("Add Listing form submission with values", values);
-    console.log(formikBag);
     formikBag.props.postListing(values);
+    formikBag.props.getUser(values.user_id);
     formikBag.props.history.push("/userListing");
   }
 })(AddListingForm);
 
 export default connect(
   null,
-  { postListing }
+  { postListing, getUser }
 )(AddListingComponent);

@@ -1,6 +1,9 @@
 import React from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { connect } from "react-redux";
+import { updateListing } from "../util/actions/listingActions";
+import { getUser } from "../util/actions/authActions";
 import { Button } from "semantic-ui-react";
 
 function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
@@ -12,10 +15,15 @@ function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
         <p>Listing Name</p>
 
         <Field
-          style={(errors.listing_name && touched.listing_name) ? { border: "1px solid red" } : null} 
+          style={
+            errors.listing_name && touched.listing_name
+              ? { border: "1px solid red" }
+              : null
+          }
           type="text"
-          name="listing_name" 
-          placeholder="Listing Name" />
+          name="listing_name"
+          placeholder="Listing Name"
+        />
         {touched.listing_name && errors.listing_name && (
           <p className="error">{errors.listing_name}</p>
         )}
@@ -23,17 +31,21 @@ function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
 
       <div>
         <p>Image Url</p>
-        {touched.img_url && errors.img_url && (
-          <p className="error">{errors.img_url}</p>
+        {touched.image_url && errors.image_url && (
+          <p className="error">{errors.image_url}</p>
         )}
-        <Field type="text" name="img_url" placeholder="Image Url" />
+        <Field type="text" name="image_url" placeholder="Image Url" />
       </div>
 
       <div>
         <p>Description</p>
-        
+
         <Field
-          style={(errors.description && touched.description) ? { border: "1px solid red" } : null}
+          style={
+            errors.description && touched.description
+              ? { border: "1px solid red" }
+              : null
+          }
           component={"textarea"}
           type="textarea"
           name="description"
@@ -44,7 +56,12 @@ function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
         )}
       </div>
 
-      <Button className="positive" color="green" type="submit" disabled={isSubmitting}>
+      <Button
+        className="positive"
+        color="green"
+        type="submit"
+        disabled={isSubmitting}
+      >
         Save Changes
       </Button>
     </Form>
@@ -52,12 +69,12 @@ function EditLandOwnerForm({ values, errors, touched, isSubmitting }) {
 }
 
 const FormikEditLandOwnerForm = withFormik({
-  mapPropsToValues({ listing_name, image_url, description, user }) {
+  mapPropsToValues({ listing_name, listing_id, image_url, description }) {
     return {
       listing_name: listing_name || "",
       image_url: image_url || "",
       description: description || "",
-      user_id: user
+      listing_id: listing_id
     };
   },
   validationSchema: Yup.object().shape({
@@ -69,10 +86,17 @@ const FormikEditLandOwnerForm = withFormik({
       .required("Description is required")
   }),
 
-  handleSubmit(values) {
-    console.log("Editing The land Owner form saved changes");
-    console.log(values);
+  handleSubmit(values, formikBag) {
+    formikBag.props.updateListing(values);
+    formikBag.props.getUser(formikBag.props.user_id);
   }
 })(EditLandOwnerForm);
 
-export default FormikEditLandOwnerForm;
+const mapStateToProps = state => ({
+  user_id: state.authReducer.user.id
+});
+
+export default connect(
+  mapStateToProps,
+  { updateListing, getUser }
+)(FormikEditLandOwnerForm);

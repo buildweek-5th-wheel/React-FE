@@ -75,8 +75,6 @@ const FormikUserAccountForm = withFormik({
   }),
 
   handleSubmit(values, formikBag) {
-    console.log("User account form saved changes");
-    console.log(values, formikBag.props.user.id);
     formikBag.props.editUser(values, formikBag.props.user.id);
   }
 })(UserAccountForm);
