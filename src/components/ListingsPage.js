@@ -22,7 +22,7 @@ function LandListings(props) {
 
   return (
     <div className="Land-List-Parent">
-      <h1 className="Land-List-Parent-h1">Places To Stay</h1>
+      <h1 className="Land-List-Parent-h1">Available Listings</h1>
 
       <section className="land-list">
         {props.listing.map(land => (
