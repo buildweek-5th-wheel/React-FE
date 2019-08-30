@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { getListing } from "../util/actions/listingActions";
 
 //testing purposes data doesn't have picture
-import data from "./DummyData";
+// import data from "./DummyData";
 
 function LandListings(props) {
   useEffect(() => {
@@ -22,7 +22,6 @@ function LandListings(props) {
         {props.listing.map(land => (
           <ListingsCard key={land.listing_id} land={land} />
         ))}
-        {console.log("Data from server", props.listing)}
       </section>
     </div>
   );

@@ -6,7 +6,7 @@ import AddBookingForm from "../forms/BookForm";
 const BookingButton = props => (
   <Modal
     trigger={
-      <Button color="grey" className="neutral" >
+      <Button color="grey" className="neutral">
         Book
       </Button>
     }
@@ -18,7 +18,6 @@ const BookingButton = props => (
 );
 //All Land Listings
 const LandCard = props => {
-  console.log(props);
   return (
     <Card key={props.land.listing_id}>
       <Image src={props.land.image_url} wrapped ui={false} />

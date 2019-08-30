@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import OwnerCard from "./LandOwnerCard.js";
-import data from "./DummyData.js";
 import { Button, Modal } from "semantic-ui-react";
 import AddListingForm from "../forms/addListingForm";
 import "../scss/LandOwner.scss";
-import AuthRoute from "../util/AuthRoute";
 import { connect } from "react-redux";
 import {
   postListing,
@@ -16,7 +14,7 @@ import { getUser } from "../util/actions/authActions";
 const AddListingButtonModal = props => (
   <Modal
     trigger={
-      <Button color="green" className="positive" >
+      <Button color="green" className="positive">
         Add
       </Button>
     }
@@ -25,13 +23,6 @@ const AddListingButtonModal = props => (
     <AddListingForm user={props.user} history={props.history} />
   </Modal>
 );
-const dumbListing = {
-  listing_name: "Some more land",
-  user_id: 8,
-  description: "Super fun place to chill",
-  image_url:
-    "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-};
 
 const OwnerListings = props => {
   const [listings, setListings] = useState([]);

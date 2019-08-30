@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Menu, Image, Responsive, Segment } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 import NavImg from "../images/logo-blue.png";
@@ -29,8 +29,7 @@ const Navbar = props => {
                 <Image
                   centered={true}
                   size="medium"
-                  classname="navimage"
-                  fluid={true}
+                  className="navimage"
                   src={NavImg}
                 />
               </Menu.Item>
@@ -79,8 +78,7 @@ const Navbar = props => {
                 <Image
                   centered={true}
                   size="medium"
-                  classname="navimage"
-                  fluid={true}
+                  className="navimage"
                   src={NavImg}
                 />
               </Menu.Item>
@@ -113,7 +111,7 @@ const Navbar = props => {
         <Responsive minWidth={701}>
           {props.isAuth && token ? (
             <Menu>
-              <Image classname="navimage" src={NavImg} />
+              <Image className="navimage" src={NavImg} />
 
               <Menu.Item
                 name="My Listings"
@@ -155,7 +153,7 @@ const Navbar = props => {
             </Menu>
           ) : (
             <Menu>
-              <Image classname="navimage" src={NavImg} />
+              <Image className="navimage" src={NavImg} />
 
               <Menu.Item
                 name="Marketplace"

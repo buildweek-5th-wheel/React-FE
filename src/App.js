@@ -1,7 +1,7 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import "./scss/App.scss";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./pages/header";
 import SignupComponent from "./forms/SignUpForm";
@@ -19,6 +19,7 @@ import DumbPost from "./components/DummyPostListing";
 //Testing Area Components
 
 const App = () => {
+  localStorage.removeItem("token");
   return (
     <Router>
       <Navbar />

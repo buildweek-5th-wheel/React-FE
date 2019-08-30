@@ -6,7 +6,7 @@ import "../scss/Bookings.scss";
 /* startDate, endDate, listing_name */
 const BookingsCard = props => {
   return (
-    <Card key={props["listing_id"]}>
+    <Card key={props.listing_id}>
       {/* <Image src={props.booking["img_url"]} wrapped ui={false} /> */}
       <Card.Content>
         <Card.Header>{props.listingName}</Card.Header>
@@ -17,7 +17,9 @@ const BookingsCard = props => {
         </Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Button className="negative" color="red">Delete</Button>
+        <Button className="negative" color="red">
+          Delete
+        </Button>
       </Card.Content>
     </Card>
   );
@@ -47,7 +49,6 @@ export default function BookingsComponent() {
     }
   ];
 
-  console.log(data);
   return (
     <div className="booking-list-parent">
       <h1>Your Bookings</h1>
