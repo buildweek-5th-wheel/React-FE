@@ -3,11 +3,17 @@ import React, { useEffect } from "react";
 import ListingsCard from "./ListingsCard.js";
 import { connect } from "react-redux";
 import { getListing } from "../util/actions/listingActions";
+import { getUser } from "../util/actions/authActions";
 
 //testing purposes data doesn't have picture
 // import data from "./DummyData";
 
 function LandListings(props) {
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      props.getUser(props.user.id);
+    }
+  }, []);
   useEffect(() => {
     props.getListing();
   }, []);
@@ -27,10 +33,11 @@ function LandListings(props) {
   );
 }
 const mapStateToProps = state => ({
-  listing: state.listingReducer.listingItems
+  listing: state.listingReducer.listingItems,
+  user: state.authReducer.user
 });
 
 export default connect(
   mapStateToProps,
-  { getListing }
+  { getListing, getUser }
 )(LandListings);

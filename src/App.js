@@ -14,9 +14,6 @@ import ListingsPage from "./components/ListingsPage";
 import OwnerListing from "./components/LandOwner";
 import Footer from "./components/Footer";
 import BookingsPage from "./components/BookingsPage";
-//Testing Area for Components
-import DumbPost from "./components/DummyPostListing";
-//Testing Area Components
 
 const App = () => {
   localStorage.removeItem("token");
@@ -27,7 +24,6 @@ const App = () => {
 
       {/* ROUTES */}
       <Switch>
-        <Route path="/dumb" component={DumbPost} />
         <Route exact path="/" component={ListingsPage} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={SignupComponent} />

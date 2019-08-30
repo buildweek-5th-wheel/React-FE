@@ -13,7 +13,7 @@ const BookingButton = props => (
   >
     <Modal.Header>Add a Booking</Modal.Header>
     <img className="book-img" src={props.land.image_url} alt="" />
-    <AddBookingForm />
+    <AddBookingForm listing_id={props.land.listing_id} />
   </Modal>
 );
 //All Land Listings

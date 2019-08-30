@@ -25,6 +25,9 @@ const AddListingButtonModal = props => (
 );
 
 const OwnerListings = props => {
+  useEffect(() => {
+    props.getUser(props.user.id);
+  }, []);
   const [listings, setListings] = useState([]);
 
   useEffect(() => {

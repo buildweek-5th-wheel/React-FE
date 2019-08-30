@@ -31,7 +31,6 @@ export const updateListing = lists => dispatch => {
   return AuthRoute()
     .put(`/listings/${lists.listing_id}`, lists)
     .then(res => {
-      console.log("Updated listing", res);
       dispatch({ type: types.UPDATE_LISTING_SUCCESS, payload: lists });
     })
     .catch(err =>
@@ -44,7 +43,6 @@ export const deleteListing = id => dispatch => {
   return AuthRoute()
     .delete(`/listings/${id}`)
     .then(res => {
-      console.log(res);
       dispatch({
         type: types.DELETE_LISTING_SUCCESS,
         payload: id

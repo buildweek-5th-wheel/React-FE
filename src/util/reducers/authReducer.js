@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
         isAuth: false
       };
     case types.LOGIN_SUCCESS:
-      console.log(payload);
       return {
         ...state,
         token: payload.token,
@@ -158,8 +157,7 @@ export default (state = initialState, action) => {
         ...state,
         isLoading: false,
         isAuth: true,
-        isSuccess: true,
-        user: { ...state.user, bookings: state.user.bookings.push(payload) }
+        isSuccess: true
       };
     case types.BOOKING_LISTING_FAILURE:
       return {
