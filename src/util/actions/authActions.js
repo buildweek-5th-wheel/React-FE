@@ -22,7 +22,6 @@ export const doRegister = data => dispatch => {
   return AuthRoute()
     .post("/auth/register", data)
     .then(res => {
-      console.log(res);
       dispatch({ type: types.REGISTER_USER_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -33,12 +32,10 @@ export const doRegister = data => dispatch => {
 
 /** GET USER PROFILE */
 export const getUser = id => dispatch => {
-  console.log("Id being passed from profile page UseEffect", id);
   dispatch({ type: types.GET_USER_START });
   return AuthRoute()
     .get(`/users/${id}`)
     .then(res => {
-      console.log(id);
       dispatch({ type: types.GET_USER_SUCCESS, payload: res.data });
     })
     .catch(err => dispatch({ type: types.GET_USER_FAILURE, payload: err }));
@@ -46,12 +43,10 @@ export const getUser = id => dispatch => {
 
 // EDIT USER PROFILE
 export const editUser = (user, id) => dispatch => {
-  console.log(id);
   dispatch({ type: types.EDIT_USER_START });
   return AuthRoute()
     .put(`/users/${id}`, user)
     .then(res => {
-      console.log(res);
       dispatch({ type: types.EDIT_USER_SUCCESS, payload: user });
     })
     .catch(err => dispatch({ type: types.EDIT_USER_FAILURE, payload: err }));
@@ -71,10 +66,10 @@ export const deleteUser = id => dispatch => {
 };
 
 //POST BOOKING "listing - Object with 3 keys: listing_id,startDate,stopDate"
-export const postBooking = listing => dispatch => {
+export const postBooking = (listing_id, booking) => dispatch => {
   dispatch({ type: types.BOOKING_LISTING_START });
   return AuthRoute()
-    .post(`/listings/${listing.listing_id}/booking`, listing)
+    .post(`/listings/${listing_id}/booking`, booking)
     .then(res => {
       dispatch({ type: types.BOOKING_LISTING_SUCCESS, payload: "Wow" });
     })

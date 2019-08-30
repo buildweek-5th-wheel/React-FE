@@ -1,7 +1,7 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import "./scss/App.scss";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./pages/header";
 import SignupComponent from "./forms/SignUpForm";
@@ -14,11 +14,9 @@ import ListingsPage from "./components/ListingsPage";
 import OwnerListing from "./components/LandOwner";
 import Footer from "./components/Footer";
 import BookingsPage from "./components/BookingsPage";
-//Testing Area for Components
-import DumbPost from "./components/DummyPostListing";
-//Testing Area Components
 
 const App = () => {
+  localStorage.removeItem("token");
   return (
     <Router>
       <Navbar />
@@ -26,7 +24,6 @@ const App = () => {
 
       {/* ROUTES */}
       <Switch>
-        <Route path="/dumb" component={DumbPost} />
         <Route exact path="/" component={ListingsPage} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={SignupComponent} />

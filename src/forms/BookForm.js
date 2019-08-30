@@ -3,51 +3,46 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import "../../src/scss/formStyles.scss";
 import "../../src/scss/addListing.scss";
+import { connect } from "react-redux";
+import { postBooking } from "../util/actions/authActions";
+import { withRouter } from "react-router-dom";
+
 import { Button } from "semantic-ui-react";
 
-function AddBookingForm({
-  values,
-  errors,
-  touched,
-  isSubmitting,
-  setFieldValue,
-  setFieldTouched,
-  handleSubmit
-}) {
+function AddBookingForm({ values, errors, touched, isSubmitting }) {
   return (
     <Form className="addListing">
-      <img src={values.imgUrl} alt="" />
       <div className="inputs">
         <div>
           <p>Check-in</p>
           <Field
             style={
-              errors.checkin && touched.checkin
+              errors.startDate && touched.startDate
                 ? { border: "1px solid red" }
                 : null
             }
             type="date"
-            name="checkin"
-            placeholder="checkin"
+            name="startDate"
+            placeholder="startDate"
           />
-          {touched.checkin && errors.checkin && (
-            <p className="error">{errors.checkin}</p>
+          {touched.startDate && errors.startDate && (
+            <p className="error">{errors.startDate}</p>
           )}
         </div>
         <div>
           <p>Check-out</p>
           <Field
             style={
-              errors.checkout && touched.checkout
+              errors.stopDate && touched.stopDate
                 ? { border: "1px solid red" }
                 : null
             }
             type="date"
-            name="checkout"
-            placeholder="checkout"
+            name="stopDate"
+            placeholder="stopDate"
           />
-          {touched.checkout && errors.checkout && (
-            <p className="error">{errors.checkout}</p>
+          {touched.stopDate && errors.stopDate && (
+            <p className="error">{errors.stopDate}</p>
           )}
         </div>
       </div>
@@ -64,16 +59,27 @@ function AddBookingForm({
 }
 
 const AddBookingComponent = withFormik({
-  mapPropsToValues({ checkin, checkout }) {
+  mapPropsToValues({ startDate, stopDate }) {
     return {
-      checkin: checkin || "",
+      startDate: startDate || "",
 
-      checkout: checkout || ""
+      stopDate: stopDate || ""
     };
   },
   validationSchema: Yup.object().shape({}),
 
-  handleSubmit(values) {}
+  handleSubmit(values, formikBag) {
+    if (localStorage.getItem("token")) {
+      formikBag.props.postBooking(formikBag.props.listing_id, values);
+    } else {
+      formikBag.props.history.push("/login");
+    }
+  }
 })(AddBookingForm);
 
-export default AddBookingComponent;
+export default withRouter(
+  connect(
+    null,
+    { postBooking }
+  )(AddBookingComponent)
+);

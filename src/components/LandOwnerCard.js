@@ -30,6 +30,12 @@ const EditButtonModal = ({ listing }) => {
 };
 
 const OwnerCard = props => {
+  // useEffect(
+  //   (() => {
+  //     props.getUser(props.user.id);
+  //   },
+  //   [])
+  // );
   return (
     <Card key={props.listing_id}>
       <Image src={props.owner.image_url} wrapped ui={false} />
@@ -57,8 +63,12 @@ const OwnerCard = props => {
   );
 };
 
+const mapStateToProps = state => ({
+  user: state.authReducer.user
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { getUser, deleteListing }
 )(OwnerCard);
 

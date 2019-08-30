@@ -23,7 +23,6 @@ const UserAccountComponent = props => {
   useEffect(() => {
     setUser(props.user);
   }, [props.user]);
-
   const EditButtonModal = ({ user }) => (
     <Modal trigger={<Button>Edit</Button>}>
       <Modal.Header>Edit Profile</Modal.Header>
